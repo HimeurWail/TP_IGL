@@ -1,0 +1,35 @@
+{
+    "trendings": [
+      {
+        "title": "something",
+        "category": "location",
+        "type": "villa",
+        "surface": "240",
+        "price": "Oum El Bouaghi",
+        "bedroom": "03",
+        "Description" : " this is the Description for our little thin gbsjhgkjsg" , 
+        "id": 1
+      } , 
+      {
+        "title": "something",
+        "category": "location",
+        "type": "villa",
+        "surface": "240",
+        "price": "Oum El Bouaghi",
+        "bedroom": "03",
+        "Description" : " this is the Description for our little thin gbsjhgkjsg" , 
+        "id": 2
+      } , 
+      {
+        "title": "something",
+        "category": "location",
+        "type": "villa",
+        "surface": "240",
+        "price": "Oum El Bouaghi",
+        "bedroom": "03",
+        "Description" : " this is the Description for our little thin gbsjhgkjsg" , 
+        "id": 3
+      }
+    
+    ]
+  }

@@ -1,9 +1,14 @@
 import React from 'react'
+import { useContext } from 'react'
+import MyContext from '../utils/MyContext.js'
 
 function Page() {
+ // const {username,setUsername} = useContext(MyContext)
   return (
-    <div className='h-20 w-20 bg-red-600'>
-
+    <div className='' id=''>
+        hoiiiiiiiiiiiiiiiiiiii
+        hi
+        {/*username*/}
     </div>
   )
 }
