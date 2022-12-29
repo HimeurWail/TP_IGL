@@ -8,24 +8,26 @@ const Trending = () => {
     const { trends , isPending, error } = useFetchTrends("http://localhost:8003/trendings");
     return ( 
          
-        <div id="Trendings" className=" w-full h-screen bg-ahmar  pt-[5%] ">
+        <div id="Trendings" className=" w-full h-screen  pt-[10%] ">
 
-            <Title first="Trending Destination"></Title>
-            {error ? <div> there's an error : {error} </div> : <></>}
-            {isPending ? <div> Loading ... </div> : <></>}
-            {trends ? 
-             
-              trends.map((trend) =>
-                (<div className=" flex flex-row w-1/5 mx-auto mb-[30px]" key={trend.id}>
-                    <Link to={`/Trend/${trends.id}`}>
-                        <TrendCard trend={trend}> </TrendCard>
-                    </Link>
-                        hereeeeeee
-                </div>
+            <Title first="Trending Destination" ></Title>
+           <div className=" flex flex-row justify-center items-center mx-auto mt-[50px] ">
+                        {error ? <div> there's an error : {error} </div> : <></>}
+                        {isPending ? <div> Loading ... </div> : <></>}
+                        {trends ? 
+                        
+                        trends.map((trend) =>
+                            (<div className=" flex flex-row  mx-auto mb-[30px]" key={trend.id}>
+                                <Link to={`/Trend/${trends.id}`}>
+                                    <TrendCard trend={trend}> </TrendCard>
+                                </Link>
+                            </div>
 
-                ))
+                            ))
+                        
+                        : <></>}
+           </div>
             
-            : <></>}
 
 
 
