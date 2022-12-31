@@ -5,7 +5,7 @@ import Category from '../images/icons/category.svg' ;
 
 function AnnounceCard(props) {
   return (
-      <div className="h-[250px] lg:h-[310px] w-[150px] lg:w-[200px] p-1 shadow-md rounded-sm flex flex-col justify-center gap-3">
+      <div className="h-[250px] lg:h-[310px] w-[150px] lg:w-[220px] p-1 shadow-md rounded-sm flex flex-col justify-center gap-3">
         <img alt='announce' src={props.mainImg} className='rounded-sm'/>
         <p className='mx-auto text-base lg:text-xl'>{props.annonceLocation}</p>
 
