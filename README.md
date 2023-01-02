@@ -1,6 +1,4 @@
-# TP_IGL
-
--web application for announces
+# TP_IGL: web application for announces
 
 -run the api server: python3 manage.py runserver
 
