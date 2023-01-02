@@ -1,4 +1,4 @@
-import { Swiper, SwiperSlide } from "swiper/react";
+{/*import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 import RightArrow from '../images/pics/rightarrow.png' ; 
@@ -116,3 +116,4 @@ const Featured = () => {
  
 export default Featured;
 
+*/}

@@ -6,6 +6,8 @@ import SingleAnnonce from "./pages/SingleAnnonce";
 import Navbar from "./Components/Navbar";
 import Research from "./pages/Research";
 import AnnounceCard from "./Components/AnnounceCard";
+import SingleProfile from "./pages/SingleProfile";
+import Find from "./Components/Find";
 
 
 
@@ -17,11 +19,11 @@ function App() {
       <Navbar/>
       <div className="">
           <Routes>
-              <Route index element={<LandingPage/>}/>
-              <Route path="/Research" element={<Research/>}/>
+              <Route index element={<SingleProfile/>}/>
+              {/*<Route path="/Research" element={<Research/>}/>
               <Route path="/page" element={<AnnounceCard/>}/>
               <Route path="/page:id" element={<SingleAnnonce/>}/>
-              <Route path="/Research/:id" element={<SingleAnnonce/>}/>         
+  <Route path="/Research/:id" element={<SingleAnnonce/>}/> */}        
           </Routes>
       </div>
         
