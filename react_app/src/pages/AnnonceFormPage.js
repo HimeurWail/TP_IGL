@@ -16,26 +16,48 @@ function AnnonceFormPage() {
 
   const [inputs, setInputs] = useState({});
 
-  const handleChange = (event) => {
+  function handleChange(event) {
     const name = event.target.name;
     const value = event.target.value;
-    setInputs(values => ({...values, [name]: value}));
+    setInputs(values => ({ ...values, [name]: value }));
   }
 
   const handleSubmit = (event) => {
     /*event.preventDefault();
     alert(inputs.contact);*/
-    for(let f of uploadedFiles){
-      let uploadData = new FormData();
-      uploadData.append('code', "FQCSKFDHHF");
-      uploadData.append('imgFile', f);
-      fetch('http://127.0.0.1:8000/api/saveimgs/',{
-        method: 'POST',
-        body: uploadData
-      })
-      .then(res => console.log(res))
-      .catch(error => console.log(error))
+    const requestOptions = {
+      method: 'POST',
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        category: inputs.category,
+        type: inputs.type,
+        title: inputs.title, 
+        description: inputs.description,
+        price: inputs.price,
+        surface: inputs.surface, 
+        willaya: inputs.willaya, 
+        commune: inputs.town,
+        adress: inputs.adresse, 
+        userContacts: inputs.contact, 
+        userId: 'Wail66698',
+        })
     }
+    
+    fetch('http://127.0.0.1:8000/api/saveannounce/', requestOptions).then((res) => {
+      return res.json();
+    }).then((data) => {
+      for(let f of uploadedFiles){
+        let uploadData = new FormData();
+        uploadData.append('code', data.announceCode);
+        uploadData.append('imgFile', f);
+        fetch('http://127.0.0.1:8000/api/saveimgs/',{
+          method: 'POST',
+          body: uploadData
+        })
+        .then(res => console.log(res))
+        .catch(error => console.log(error))
+      }
+    }).catch((err) => console.log(err))
   }
 
 
