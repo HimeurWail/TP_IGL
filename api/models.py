@@ -12,23 +12,25 @@ def generate_unique_code():
 
     return code
 
-def upload_path(instance, filename):
-    return '/'.join(['announcesImg', str(instance.announceCode), filename])
+
 
 class Announce(models.Model):
     announceCode = models.CharField(max_length = 10, default=generate_unique_code, unique=True)
-    category = models.CharField(null=False)
-    type = models.CharField(null=False)
-    title = models.CharField(null=False)
-    description = models.CharField(null=False)
+    category = models.CharField(max_length=40, null=False)
+    type = models.CharField(max_length=40, null=False)
+    title = models.CharField(max_length=256, null=False)
+    description = models.CharField(max_length=1000, null=False)
     price = models.IntegerField(null=False)
     surface = models.IntegerField(null=False)
-    willaya = models.CharField(null=False)
-    commune = models.CharField(null=False)
-    adress = models.CharField(null=False)
-    userContacts = models.CharField(null=False) 
-    userId = models.CharField(null=False, unique=True)
+    willaya = models.CharField(max_length=40, null=False)
+    commune = models.CharField(max_length=40, null=False)
+    adress = models.CharField(max_length=256, null=False)
+    userContacts = models.CharField(max_length=1000, null=False) 
+    userId = models.CharField(max_length=60, null=False, unique=True)
     createdAt = models.DateField(auto_now_add = True)
+
+def upload_path(instance, filename):
+    return '/'.join(['announcesImg', str(instance.announceCode), filename])
 
 # Create your models here.
 class AnnounceImg(models.Model):
