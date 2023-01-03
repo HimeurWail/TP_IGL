@@ -18,11 +18,11 @@ function App() {
         <Navbar className="absolute z-20 "></Navbar>
      
       <div className="">
-        
+
           <Routes>
-              <Route index element={<SingleProfile/>}/>
+              <Route index element={<LandingPage/>}/>
               <Route path="/Research" element={<Research/>}/>
-              <Route path="/page" element={<AnnounceCard/>}/>
+              <Route path="/page" element={<SingleProfile/>}/>
               <Route path="/page:id" element={<SingleAnnonce/>}/>
               <Route path="/Research/:id" element={<SingleAnnonce/>}/>         
           </Routes>
