@@ -16,9 +16,6 @@ html {
 
 /* - - - - - - - -  STYLES FOR LANDING PAGE  - - - - - - - - */
 
-
-
-
   .navbar .Btns a::after
   { /* after is the child of the ancher tag */
       content: '';
@@ -55,3 +52,28 @@ html {
 @keyframes spin{
   100%{-webkit-transform: rotate(360deg);}
 }
+
+/* - - - - - - - -  STYLES FOR contactus FORM  - - - - - - - - */
+.createform
+  { 
+    margin: 0 auto;
+    text-align: center;
+  }
+   .createform label
+   {
+    text-align: left;
+    display: block;
+   }
+
+  .createform input , .createform textarea 
+   {
+    width: 100% ;
+    padding: 6px 8px ;
+    margin: 10px 0 ;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    display: block;
+    border-radius: 7px;
+   }
+
+   

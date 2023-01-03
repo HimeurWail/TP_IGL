@@ -13,9 +13,9 @@ function Find() {
     <Title first={"Find a place that fits "}  second={"your comfort"}></Title>
 
 
-      <div className="flex flex-col m-[20px]  justify-center items-center ">
+      <div className="flex flex-col m-[20px]  justify-center items-center">
         <div className="flex flex-col lg:flex-row gap-12  px-[50px] pb-[20px]" align="center">
-          <div className=" 1 relative">
+          <div className=" 1 relative ">
             <div>
               <img className=" w-[300px]" src={studio} />
             </div>

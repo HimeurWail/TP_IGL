@@ -62,7 +62,7 @@ const Featured = () => {
    
             <Swiper
               ref={swiperRef}
-              spaceBetween={10}
+              spaceBetween={5}
               breakpoints={{
                 640: {
                   slidesPerView: 1,
@@ -89,7 +89,7 @@ const Featured = () => {
                             : "lg:scale-75"
                         }`}
                       >
-                      <AnnounceCard aiCategory={Ai.aiCategory} price={Ai.price} ></AnnounceCard>
+                      <AnnounceCard Ai={Ai} ></AnnounceCard>
                       </div>
                     )}
                   </SwiperSlide>

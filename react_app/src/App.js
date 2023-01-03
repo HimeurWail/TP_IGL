@@ -3,6 +3,7 @@ import {BrowserRouter as Router , Route, Routes} from "react-router-dom";
 import LandingPage from "./pages/Landingpage";
 import Page from "./pages/Page";
 import SingleAnnonce from "./pages/SingleAnnonce";
+import SingleProfile from "./pages/SingleProfile"
 import Navbar from "./Components/Navbar";
 import Research from "./pages/Research";
 import AnnounceCard from "./Components/AnnounceCard";
@@ -12,9 +13,10 @@ import AnnounceCard from "./Components/AnnounceCard";
 function App() {
   return ( 
 
-    <main className="section-container ">
+    <main className="section-container relative">
       <Router>
-      <Navbar/>
+        <Navbar className="absolute z-20 "></Navbar>
+     
       <div className="">
           <Routes>
               <Route index element={<LandingPage/>}/>
