@@ -18,8 +18,9 @@ function App() {
         <Navbar className="absolute z-20 "></Navbar>
      
       <div className="">
+        
           <Routes>
-              <Route index element={<LandingPage/>}/>
+              <Route index element={<SingleProfile/>}/>
               <Route path="/Research" element={<Research/>}/>
               <Route path="/page" element={<AnnounceCard/>}/>
               <Route path="/page:id" element={<SingleAnnonce/>}/>
