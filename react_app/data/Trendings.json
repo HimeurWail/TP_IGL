@@ -1,0 +1,25 @@
+{
+    "trendings": [
+      {
+        "title": "Alger",
+        "id": 1
+       
+      } , 
+      {
+        "title": "Wahran",
+        "id": 2
+       
+      } , 
+      {
+        "title": "Adrar",
+        "id": 3
+       
+      } ,
+      {
+        "title": "Tamenrast",
+        "id": 4  
+       
+      } 
+    
+    ]
+  }

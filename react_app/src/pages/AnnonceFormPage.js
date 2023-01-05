@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import NavBar from '../components/NavBar'
 
 const MAX_COUNT = 5;
 
@@ -93,7 +92,6 @@ function AnnonceFormPage() {
 
   return (
     <div className='example w-screen h-[1310px] overflow-auto flex flex-col gap-10'>
-        <NavBar />
         <div className='mx-auto flex flex-col gap-2'>
           <p className='text-2xl md:text-3xl lg:text-4xl'>
             Add listing
@@ -185,7 +183,7 @@ function AnnonceFormPage() {
           <div className='flex flex-row-reverse w-full'>
             <input type='submit' id='submit' className='w-0 h-0'/>
             <label for="submit" className='submit-button p-2 w-fit flex justify-center items-center gap-2 cursor-pointer hover:scale-110 bg-[#EE462F] rounded-sm text-white'>
-              <img alt='submit' src='static/icons/submit.png' className='w-3 h-3'/>
+              <img alt='submit' src='static\icons\submit.png' className='w-3 h-3'/>
               <span>Submit</span>
             </label>
           </div>

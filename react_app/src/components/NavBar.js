@@ -1,33 +1,79 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom' ; 
+import { GoogleLogin, GoogleLogout } from 'react-google-login';
+import { gapi } from 'gapi-script';
+import { useState , useEffect } from 'react';
 
-function NavBar() {
-  return (
-    <nav class="bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 w-full border-b border-gray-200 ">
-            <div class="container flex flex-wrap items-center justify-between">
-            <div className='flex items-center'>
-                <img src="" alt='Logo' className='h-6 mr-3 sm:h-9" alt="Flowbite Logo' />
-                <span className='self-center text-xl font-semibold whitespace-nowrap dark:text-white'>Our Name</span>
+/* the Navbar still need updates, this isn't the final version, it is just for testing */
+
+const Navbar = (props) => {
+    const [ profile, setProfile ] = useState([]);
+    const [authentificated, setAuthentificated] = useState(false); 
+    const clientId = '763504218710-jee3n3jn6hvd315dfukpfet4hbjf869m.apps.googleusercontent.com';
+    useEffect(() => {
+        const initClient = () => {
+            gapi.client.init({
+                clientId: clientId,
+                scope: ''
+            })
+        };
+        gapi.load('client:auth2', initClient);
+    });
+
+    const onSuccess = (res) => {
+        setAuthentificated(true);
+        props.setUserCallback({name: res.profileObj.name, userName: res.profileObj.email, pic: res.profileObj.imageUrl}); //set user state of App.js
+        setProfile(res.profileObj);
+    };
+
+    const onFailure = (err) => {
+        console.log('failed', err);
+    };
+
+    const logOut = () => {
+        setAuthentificated(false);
+        props.resetUserCallback();
+    };
+    return ( 
+        <nav className="navbar sticky z-10 top-0 p-[5px] m-auto  bg-azra9 cursor-pointer font-normal flex flex-row items-center jutify-center px-[15px] py-[10px] w-full">
+          <div className=''> 
+
+          <h1> logo here </h1>
+            </div>    
+               
+          <div className="Btns px-5 mx-[10px] flex items-center justify-center ml-auto mr-auto ">
+              <a className=' relative p-[10px] ml-[20px] ' href="/#Home"> Home </a> 
+              <a className=' relative p-[10px] ml-[20px] ' href="/#Find"> Find </a>
+              <a className=' relative p-[10px] ml-[20px] ' href="/#Featured"> Featured </a>
+              <a className=' relative p-[10px] ml-[20px] ' href="/#Trendings"> Trendings </a>
+              <a className=' relative p-[10px] ml-[20px] ' href="/#ContactUs"> Contact Us </a>
+             <Link className=' relative p-[10px] ml-[20px] '  to="/Research"> Research </Link> 
+              
+          </div>
+
+          <div className="sign px-[50px] items-end flex ">
+            <div className={`${authentificated && 'hidden'}`}>
+                <GoogleLogin
+                        clientId={clientId}
+                        buttonText="Sign in"
+                        onSuccess={onSuccess}
+                        onFailure={onFailure}
+                        cookiePolicy={'single_host_origin'}
+                        prompt="select_account"
+                        isSignedIn={true}
+                        className='bg-ahmar m-2 p-2 hover:text-white rounded-[12px]'
+                />
             </div>
-            <div className='items-center mx-auto justify-between hidden w-full md:flex md:w-auto md:order-1'>
-                <ul class="flex flex-col p-4 mt-4 border md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white">
-                <li>
-                    <Link className='md:bg-transparent md:text-[#EE462F] md:p-0' >Home</Link>
-                </li>
-                <li>
-                    <Link className='text-gray-700 md:hover:bg-transparent md:hover:text-[#EE462F] md:p-0 md:dark:hover:text-white md:dark:hover:bg-transparent'>Find</Link>
-                </li>
-                <li>
-                    <Link className='text-gray-700 md:hover:bg-transparent md:hover:text-[#EE462F] md:p-0 md:dark:hover:text-white md:dark:hover:bg-transparent'>About Us</Link>
-                </li>
-                <li>
-                    <Link className='text-gray-700 md:hover:bg-transparent md:hover:text-[#EE462F] md:p-0 md:dark:hover:text-white md:dark:hover:bg-transparent'>Contact Us</Link>
-                </li>
-                </ul>
+            <div className={`${!authentificated && 'hidden'}`}>
+                <GoogleLogout
+                    clientId={clientId} buttonText="Log out" onLogoutSuccess={logOut}
+                    className='bg-ahmar m-2 p-2 hover:text-white rounded-[12px]'
+                />
             </div>
-            </div>
-    </nav>
-  )
+            
+         </div>
+      
+        </nav>
+     );
 }
-
-export default NavBar
+ 
+export default Navbar;

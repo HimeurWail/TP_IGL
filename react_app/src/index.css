@@ -1,18 +1,79 @@
-
-::-webkit-scrollbar {
-    display: none;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input[type=number] {
-    -moz-appearance: textfield;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap');
+
+  
+html {
+    scroll-behavior: smooth;
+}
+
+*{
+  font-family: "Inter";
+  
+}
+
+/* - - - - - - - -  STYLES FOR LANDING PAGE  - - - - - - - - */
+
+  .navbar .Btns a::after
+  { /* after is the child of the ancher tag */
+      content: '';
+      height: 2px;
+      width: 0;   /* 100% will be there but  0 will go away untill we click */
+      background: #EE462F;
+      position: absolute ;
+      left: 0;
+      top: 40px ; 
+      /*transition very important */
+      transition: 0.5s;
+  }
+
+  .navbar .Btns a:hover::after
+{    width: 100%;  
+}
+  
+.rotate
+{
+  -moz-animation: spin 1s linear infinite;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-moz-keyframes spin 
+{
+  100%{-webkit-transform: rotate(360deg);}
+}
+@-webkit-keyframes spin 
+{
+  100%{-webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin{
+  100%{-webkit-transform: rotate(360deg);}
+}
+
+/* - - - - - - - -  STYLES FOR contactus FORM  - - - - - - - - */
+.createform
+  { 
+    margin: 0 auto;
+    text-align: center;
+  }
+   .createform label
+   {
+    text-align: left;
+    display: block;
+   }
+
+  .createform input , .createform textarea 
+   {
+    width: 100% ;
+    padding: 6px 8px ;
+    margin: 10px 0 ;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    display: block;
+    border-radius: 7px;
+   }
+
+   
