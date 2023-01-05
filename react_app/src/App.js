@@ -40,7 +40,7 @@ function App() {
         </div>*/
 
   //<LandingPage auth={auth} userName={userName} userPic={userPic} name={name}/>
-  //<AnnonceFormPage auth={auth} userName={userName} userPic={userPic} name={name}/>
+  //<AnnonceFormPage auth={auth} userName={userName} userPic={userPic} name={name}/> //
 
   return ( 
 
