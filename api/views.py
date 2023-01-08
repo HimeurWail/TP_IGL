@@ -1,7 +1,7 @@
 from rest_framework import status, generics
 from .models import Announce, AnnounceImg
 from django.http import HttpResponse
-from .serialisers import AnnounceImgSerializer, AnnounceSerializer, CreateAnnounceSerializer
+from .serialisers import AnnounceImgSerializer, AnnounceSerializer, CreateAnnounceSerializer, AnnounceCardSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
@@ -66,5 +66,28 @@ class SaveAnnounce(APIView):
 class AnnounceView(generics.ListAPIView):
     queryset = Announce.objects.all()
     serializer_class=AnnounceSerializer
-            
+
+class GetRecentAnnounce(APIView):
+    queryset = list(Announce.objects.all())
+    serializer_class=AnnounceCardSerializer
+
+    def get(self, request, *args, **kwargs):
+        if len(self.queryset)>0 :
+            self.queryset.sort(key=lambda x: x.createdAt, reverse=True)
+            announces = []
+            cpt = 0
+            for announce in self.queryset:
+                listing = self.serializer_class(announce).data
+                imgUrls = AnnounceImg.objects.filter(announceCode = listing.get('announceCode'))
+                if len(imgUrls)>0:
+                    listing.update({'imgURL': AnnounceImgSerializer(imgUrls[0]).data.get('imgFile')})
+                else:
+                    listing.update({'imgURL': 'default'})
+                announces.append(listing)
+                cpt = cpt+1
+                if cpt == 20:
+                    break
+            return Response(announces, status=status.HTTP_200_OK)
+        return HttpResponse({'msg': 'aucune annonce trouvée'}, status=status.HTTP_411_LENGTH_REQUIRED)
+    pass
             

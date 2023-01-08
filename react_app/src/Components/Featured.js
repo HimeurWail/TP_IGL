@@ -3,7 +3,7 @@ import "swiper/css";
 
 import RightArrow from '../images/pics/rightarrow.png' ; 
 import LeftArrow from '../images/pics/leftarrow.png' ; 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import AnnounceCard from './AnnounceCard';
 import useFetch from './Functions/UseFetch';
 import Title from './Style/Title';
@@ -11,9 +11,18 @@ import Title from './Style/Title';
 const Featured = () => {
 
     const swiperRef = useRef(null);
-    //const {Ais , isPending , error } = useFetch('http://localhost:8004/featured') ; 
+    const [Ais, setAis] = useState([]);
+
+    useEffect(() =>{
+      fetch('http://127.0.0.1:8000/api/recentannounces/').then((res) =>{
+          return res.json()
+      }).then((data)=>{setAis(data)})
+    }, []);
+
+    
+  //const {Ais , isPending , error } = useFetch('http://localhost:8004/featured') ; 
   
-   const Ais = [
+   /*const Ais = [
         {
           title: "something",
           aiCategory: "location",
@@ -44,7 +53,7 @@ const Featured = () => {
             Description: " this is the Description for our little thin gbsjhgkjsg",
             id: 3
           }
-      ]
+      ]*/
 
     return (
         <div id="Featured" className=" w-full h-screen pt-[90px]  " >

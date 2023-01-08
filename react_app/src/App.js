@@ -50,7 +50,7 @@ function App() {
       <div className="">
 
           <Routes>
-              <Route index element={<GetImgs auth={auth} userName={userName} userPic={userPic} name={name}/>}/>
+              <Route index element={<LandingPage auth={auth} userName={userName} userPic={userPic} name={name}/>}/>
               <Route path="/Research" element={<Research auth={auth} userName={userName} userPic={userPic} name={name}/>}/>
               <Route path="/page" element={<SingleProfile/>}/>
               <Route path="/page:id" element={<SingleAnnonce/>}/>
