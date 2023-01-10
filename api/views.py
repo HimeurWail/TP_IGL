@@ -89,5 +89,23 @@ class GetRecentAnnounce(APIView):
                     break
             return Response(announces, status=status.HTTP_200_OK)
         return HttpResponse({'msg': 'aucune annonce trouvée'}, status=status.HTTP_411_LENGTH_REQUIRED)
-    pass
+        
+class SearchAnnounce(APIView):
+    queryset = Announce.objects.all()
+    def post(self, request, *args, **kwargs):
+        title = request.data.get('title').split()
+        announces = []
+        for announce in self.queryset.all().order_by('-createdAt'):
+            for mot in title :
+                if mot in AnnounceSerializer(announce).data.get('title') or mot in AnnounceSerializer(announce).data.get('description'):
+                    listing = AnnounceCardSerializer(announce).data
+                    imgUrls = AnnounceImg.objects.filter(announceCode = listing.get('announceCode'))
+                    if len(imgUrls)>0:
+                        listing.update({'imgURL': AnnounceImgSerializer(imgUrls[0]).data.get('imgFile')})
+                    else:
+                        listing.update({'imgURL': 'default'})
+                    announces.append(listing)
+                    break
+        return Response(announces, status=status.HTTP_200_OK)
+
             
