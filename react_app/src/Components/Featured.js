@@ -58,7 +58,7 @@ const Featured = () => {
     return (
         <div id="Featured" className=" w-full h-screen pt-[90px]  " >
             <Title first={" Featured "}></Title>
-          <div className="flex items-center mx-auto md:space-x-8 sm:mt-[40px] md:mt-[40px] lg:space-x-6 lg:items-center lg:justify-center ">
+          <div className="flex items-center mx-auto md:space-x-8 sm:mt-[40px] md:mt-[40px] lg:space-x-4 lg:items-center lg:justify-center ">
           
             <div
               onClick={() => {
@@ -66,12 +66,12 @@ const Featured = () => {
               }}
               className="cursor-pointer  hidden md:flex  w-[200px] md:w-[120px] lg:w-1/6"
             >
-              <img src={LeftArrow} className="w-[100px] h-[100px]" alt="" />
+              <img src={LeftArrow} className="w-[50px] h-[50px]" alt="" />
             </div>
    
             <Swiper
               ref={swiperRef}
-              spaceBetween={5}
+              spaceBetween={4}
               breakpoints={{
                 640: {
                   slidesPerView: 1,
@@ -80,7 +80,7 @@ const Featured = () => {
                   slidesPerView: 2,
                 },
                 1024: {
-                  slidesPerView: 3,
+                  slidesPerView: 4,
                 },
               }}
             >
@@ -92,10 +92,10 @@ const Featured = () => {
                       <div
                         className={` ${
                           isActive
-                            ? "lg:scale-75"
+                            ? "lg:scale-80"
                             : isPrev || isNext
-                            ? "lg:scale-75"
-                            : "lg:scale-75"
+                            ? "lg:scale-80"
+                            : "lg:scale-80"
                         }`}
                       >
                       <AnnounceCard Ai={Ai} ></AnnounceCard>
@@ -110,9 +110,9 @@ const Featured = () => {
               onClick={() => {
                 swiperRef.current.swiper.slideNext();
               }}
-              className="cursor-pointer  hidden md:flex w-[200px] md:w-[120px] lg:w-1/6"
+              className="cursor-pointer hidden md:flex w-[200px] md:w-[120px] lg:w-1/6"
             >
-              <img src={RightArrow} className="w-[100px] h-[100px]" alt="" />
+              <img src={RightArrow} className="w-[50px] h-[50px]" alt="" />
             </div>
 
           </div>

@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom' ;
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { gapi } from 'gapi-script';
 import { useState , useEffect } from 'react';
+import profileicon from '../images/icons/profile.svg'
+import notificon from '../images/icons/notif.svg'
 
 /* the Navbar still need updates, this isn't the final version, it is just for testing */
 
@@ -33,6 +35,8 @@ const Navbar = (props) => {
         setAuthentificated(false);
         props.resetUserCallback();
     };
+
+    
     return ( 
         <nav className="navbar sticky z-10 top-0 p-[5px] m-auto  bg-azra9 cursor-pointer font-normal flex flex-row items-center jutify-center px-[15px] py-[10px] w-full">
           <div className=''> 
@@ -64,10 +68,11 @@ const Navbar = (props) => {
                 />
             </div>
             <div className={`${!authentificated && 'hidden'}`}>
-                <GoogleLogout
-                    clientId={clientId} buttonText="Log out" onLogoutSuccess={logOut}
-                    className='bg-ahmar m-2 p-2 hover:text-white rounded-[12px]'
-                />
+               <div className='flex flex-row'>
+                <Link to="/profile">
+                <img className='h-[35px]' src={profileicon} alt="" />
+                </Link>
+               </div>
             </div>
             
          </div>

@@ -3,7 +3,7 @@ import submit from '../images/icons/submit.png'
 
 const MAX_COUNT = 5;
 
-function AnnonceFormPage() {
+function AnnonceFormPage(props) {
   
   const willayas = [
     {name: "Alger"},
@@ -39,7 +39,7 @@ function AnnonceFormPage() {
         commune: inputs.town,
         adress: inputs.adresse, 
         userContacts: inputs.contact, 
-        userId: 'Wail78698',
+        userId: props.userName,
         })
     }
     

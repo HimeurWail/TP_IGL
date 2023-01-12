@@ -22,8 +22,8 @@ const Header = () => {
                         </div>
 
                         <div className='flex gap-4 '>
-                            <img className='rotate w-[30px]' src={Globe} alt="globe" />
-                            <p className='text-[20px]'> 58 wilayas supported </p>
+                            <img className='rotate w-[40px]' src={Globe} alt="globe" />
+                            <p className='text-[25px]'> 58 wilayas supported </p>
                         </div>
                             
                 </div>
