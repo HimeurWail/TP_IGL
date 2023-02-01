@@ -1,23 +1,47 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import filtreicon from "../images/icons/filtre.svg"
 import search from "../images/icons/search.svg"
-import useFetch from "../Components/Functions/UseFetch";
 import AnnMap from "../Components/AnnMap";
 
 
 const Research = () => {
+
+    const [Ais , setAis] = useState(null); 
+    const [isPending , setisPending] = useState(true) ; 
+    const [error , seterror] = useState(null) ; 
    
     const handleSearch = ()=>
     {
-     // here we handle the backend research 
+        const requestOptions = {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+            title: research})
+        }
+        fetch('http://127.0.0.1:8000/api/search/', requestOptions)
+        .then((res) => {return res.json() ;})
+        .then((data) => {
+            setAis(data);
+            setisPending(false);
+            seterror(null);
+        })
+
     }
 
     const handleFiltre = ()=>
     {
-     // here we handle the backend research 
+        let res = [];
+        const array = Array.prototype.slice.call(Ais);
+        for (let ai of array){
+            if(ai.category === "Sale"){
+                res.push(ai)
+            }
+        }
+        console.log(res);
+        setAis(res);
     }
 
-    const[research,setResearch]= useState() ;
+    const[research,setResearch]= useState("") ;
 
     const [motsCles , setMots] = useState('') ; 
     const [aiType, setType] = useState('') ; 
@@ -27,14 +51,45 @@ const Research = () => {
     const [yearmax, setYearMax] = useState('') ;
     const [pricemin , setPricemin] = useState('') ; 
     const [pricemax , setPricemax] = useState('') ; 
-   
-    const { Ais, isPending, error } = useFetch('http://localhost:8004/featured');
+    
+    const useeffectfunction = () =>
+     {
+      const abortCont = new AbortController() ; 
+        fetch('http://127.0.0.1:8000/api/recentannounces/' ,{signal : abortCont.signal}) 
+          .then(res =>
+           { if(!res.ok)
+            {
+                throw Error('could not fetch the Announcement from that ressource') ; 
+            }
+             return res.json() ;
+          }) 
+         .then(Ais=>{
+            setAis(Ais) ; 
+            setisPending(false) ;
+            seterror(null) ;  
+         })
+
+         .catch(err=>{
+          if (err.message === 'AbortError')
+          { console.log('fetch aborted')
+
+          }else
+          { setisPending(false) ; 
+            seterror(err.message)
+          }
+           
+         })         
+         return () => 
+         {console.log('cleanup');    
+         abortCont.abort()}
+         
+    }
+    useEffect(()=>useeffectfunction,['http://127.0.0.1:8000/api/recentannounces/']) 
      return ( 
         
       
          <div className=" flex flex-row items-start m-auto justify-between ">
                         <div className=" flex flex-col p-[30px] h-screen border-r-2 w-[30%] border-lightgris">
-                            <form onSubmit={handleFiltre} >
                                  <div className=" flex flex-col space-y-[3px]" >
                                  <div className="flex flex-col ">
                                     <label>Type</label>
@@ -119,14 +174,12 @@ const Research = () => {
 
                                  </div>
                             
-                                    <button className="bg-white border-ahmar border-2 px-[25px] mt-[50px] rounded-[10px] hover:text-ahmar " onClick={()=>handleFiltre}>
+                                    <button className="bg-white border-ahmar border-2 px-[25px] mt-[50px] rounded-[10px] hover:text-ahmar " onClick={handleFiltre}>
                                         <div className="flex flex-rox items-center justify-between">
                                             <img className="h-[30px]" src={filtreicon} alt="" />
                                             <p className="pl-[10px]"> Filtre </p>
                                         </div>   
-                                    </button>
-
-                            </form>    
+                                    </button>  
                                 
                          </div>
 
@@ -140,9 +193,9 @@ const Research = () => {
                                         required 
                                         value={research}
                                         className="bg-lightgreen w-[700px] h-[40px]  rounded-[10px] border-lightgris border-2 "
-                                        onChange ={(e)=> setResearch(e.target.value)}  
+                                        onChange ={(e)=> {setResearch(e.target.value); console.log(research);}}  
                                         />
-                                        <button className="bg-ahmar px-[5px] rounded-[11px] hover:bg-gris " onClick={()=>handleSearch}>
+                                        <button className="bg-ahmar px-[5px] rounded-[11px] hover:bg-gris " onClick={handleSearch}>
                                         <div className="flex flex-rox items-center justify-between">
                                             <img className="h-[40px]" src={search} alt="" />
                                         </div>
@@ -160,7 +213,8 @@ const Research = () => {
                              
             { error ? <div> there's an error : {error} </div> : <></>}
             { isPending ? <div> Loading ... </div> : <></>}
-             {Ais ? <AnnMap Ais={Ais}></AnnMap> : <></>}
+            { Ais ? <AnnMap Ais={Ais}></AnnMap> : <></>}
+            
 
                             </div>
         

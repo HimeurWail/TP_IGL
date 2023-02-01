@@ -21,3 +21,8 @@ class AnnounceImgSerializer(serializers.ModelSerializer):
     class Meta:
         model = AnnounceImg
         fields = ('announceCode', 'imgFile')
+
+class AnnounceImgSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AnnounceImg
+        fields = ('announceCode', 'imgFile')

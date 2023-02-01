@@ -52,9 +52,11 @@ function App() {
           <Routes>
               <Route index element={<LandingPage auth={auth} userName={userName} userPic={userPic} name={name}/>}/>
               <Route path="/Research" element={<Research auth={auth} userName={userName} userPic={userPic} name={name}/>}/>
-              <Route path="/page" element={<SingleProfile/>}/>
+              <Route path="/page" element={<SingleProfile resetUserCallback = {resetUser}  auth={auth} userName={userName} userPic={userPic} name={name}/>}/>
               <Route path="/page:id" element={<SingleAnnonce/>}/>
-              <Route path="/Research/:id" element={<SingleAnnonce/>}/>         
+              <Route path="/Research/:id" element={<SingleAnnonce/>}/> 
+              <Route path="/Add" element={<AnnonceFormPage auth={auth} userName={userName} userPic={userPic} name={name}/>}/>
+
           </Routes>
       </div>
         
