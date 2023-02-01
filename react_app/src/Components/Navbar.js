@@ -33,6 +33,8 @@ const Navbar = (props) => {
         setAuthentificated(false);
         props.resetUserCallback();
     };
+
+    
     return ( 
         <nav className="navbar sticky z-10 top-0 p-[5px] m-auto  bg-azra9 cursor-pointer font-normal flex flex-row items-center jutify-center px-[15px] py-[10px] w-full">
           <div className=''> 

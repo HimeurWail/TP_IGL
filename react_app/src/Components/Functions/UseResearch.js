@@ -1,6 +1,6 @@
 import { useEffect , useState } from "react";
 
-const useFetch = (url) => 
+const useResearch = (url, requestOptions) => 
 {
      const [Ais , setAis] = useState(null); 
      const [ isPending , setisPending] = useState(true) ; 
@@ -8,8 +8,7 @@ const useFetch = (url) =>
    
      const useeffectfunction = () =>
      {
-      const abortCont = new AbortController() ; 
-        fetch(url ,{signal : abortCont.signal}) 
+        fetch(url, requestOptions) 
           .then(res =>
            { if(!res.ok)
             {
@@ -24,21 +23,12 @@ const useFetch = (url) =>
          })
 
          .catch(err=>{
-          if (err.message === 'AbortError')
-          { console.log('fetch aborted')
-
-          }else
-          { setisPending(false) ; 
-            seterror(err.message)
-          }
-           
-         })         
-         return () => 
-         {console.log('cleanup');    
-         abortCont.abort()}
+           setisPending(false) ; 
+           seterror(err.message)
+          })         
          
     }
     useEffect(()=>useeffectfunction,[url]) 
     return { Ais , isPending , error}
 }
-export default useFetch;
+export default useResearch;
