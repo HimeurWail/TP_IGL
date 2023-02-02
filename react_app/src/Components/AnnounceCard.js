@@ -12,7 +12,7 @@ function AnnounceCard(props) {
       img = './default.jpg';
     
   return (
-      <div className="h-[250px] lg:h-[310px] w-[150px] lg:w-[220px] p-1 shadow-lg rounded-sm flex flex-col justify-center gap-3">
+      <div className="h-[250px] lg:h-[310px] w-[150px] lg:w-[240px] p-1 shadow-lg rounded-sm flex flex-col justify-center gap-3">
         <img alt='announce' src={img} className='h-44 w-44 mx-auto rounded-sm'/>
         <p className='mx-auto text-base lg:text-xl'>{Ai.annonceLocation}</p>
          

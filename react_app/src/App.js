@@ -9,6 +9,7 @@ import Research from "./pages/Research";
 import AnnounceCard from "./Components/AnnounceCard";
 import AnnonceFormPage from "./pages/AnnonceFormPage";
 import GetImgs from "./pages/GetImgs";
+import { useEffect } from "react";
 
 
 
@@ -46,13 +47,13 @@ function App() {
 
     <main className="section-container relative">
       <Router>
-        <Navbar resetUserCallback = {resetUser} setUserCallback={setUser} className="absolute z-20 "></Navbar>
+        <Navbar auth={auth} userName={userName} userPic={userPic} name={name} setUserCallback={setUser} className="absolute z-20 "></Navbar>
       <div className="">
 
           <Routes>
-              <Route index element={<LandingPage auth={auth} userName={userName} userPic={userPic} name={name}/>}/>
+              <Route index path="/" element={<LandingPage auth={auth} userName={userName} userPic={userPic} name={name}/>}/>
               <Route path="/Research" element={<Research auth={auth} userName={userName} userPic={userPic} name={name}/>}/>
-              <Route path="/page" element={<SingleProfile resetUserCallback = {resetUser}  auth={auth} userName={userName} userPic={userPic} name={name}/>}/>
+              <Route path="/Profile" element={<SingleProfile resetUserCallback = {resetUser}  auth={auth} userName={userName} userPic={userPic} name={name}/>}/>
               <Route path="/page:id" element={<SingleAnnonce/>}/>
               <Route path="/Research/:id" element={<SingleAnnonce/>}/> 
               <Route path="/Add" element={<AnnonceFormPage auth={auth} userName={userName} userPic={userPic} name={name}/>}/>

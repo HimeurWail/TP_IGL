@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import submit from '../images/icons/submit.png'
+import Title from '../Components/Style/Title';
 
 const MAX_COUNT = 5;
 
@@ -92,12 +93,11 @@ function AnnonceFormPage(props) {
   }
 
   return (
-    <div className='example w-screen h-[1310px] overflow-auto flex flex-col gap-10'>
-        <div className='mx-auto flex flex-col gap-2'>
-          <p className='text-2xl md:text-3xl lg:text-4xl'>
-            Add listing
-          </p>
-          <div className='w-[90%] h-1 mx-auto bg-[#EE462F] rounded-sm'></div>
+    <div className='example w-screen h-[1300px] overflow-auto flex flex-col gap-10'>
+        <div className=' mt-10 mx-auto flex flex-col gap-2'>
+         
+          <Title first={'Add listing'} ></Title>
+          
         </div>
         <form onSubmit={handleSubmit} className='w-[390px] md:w-[850px] lg:w-[1220px] h-[1120px] md:h-[950px] shadow-lg mx-auto py-6 md:py-8 lg:py-10 px-7 md:px-14 lg:px-16 flex flex-col gap-5'>
           <div className='w-full flex flex-col gap-1'>

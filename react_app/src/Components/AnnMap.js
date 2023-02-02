@@ -7,8 +7,8 @@ const AnnMap = ({Ais}) => {
           
         {Ais.map((Ai) =>
         
-        (<div className=" flex flex-row w-1/4 mx-auto mb-[30px]" key={Ai.id}>
-            <Link to={`/Research/${Ai.id}`}>
+        (<div className=" flex flex-row w-1/3 mx-auto mb-[30px]" key={Ai.id}>
+            <Link to={`/Research/${Ai.announceCode}`}>
                 <AnnounceCard Ai={Ai}></AnnounceCard > 
             </Link>
 

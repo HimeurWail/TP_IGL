@@ -3,7 +3,7 @@ import Title from "../Components/Style/Title";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import img from "../images/pics/nivVilla.svg" ; 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import heart from "../images/icons/heart.svg"
 import { useState } from "react";
 
@@ -20,6 +20,9 @@ const SingleAnnonce = () => {
    const swiperRef = useRef(null);
    const [message , setMessage] = useState('') ; 
 
+   const [Ai,setAi] = useState({});
+   const [imgsUrls, setImgs] = useState([])
+
    const AddToFav = ()=>
    {
     // here we handle the backend addition
@@ -28,6 +31,11 @@ const SingleAnnonce = () => {
    {
     // here we handle the backend addition
    }  
+
+   useEffect(() => {
+    fetch(`http://127.0.0.1:8000/api/announce/?code=`+id).then((res) => {return res.json();}).then((data)=> {setAi(data)} ).catch((err) => console.log(err))
+    fetch('http://127.0.0.1:8000/api/getimgs/?code='+id).then((res) => {return res.json();}).then((data)=> {setImgs(data);} ).catch((err) => console.log(err))
+   }, []);
 
 
     return ( 
@@ -38,7 +46,6 @@ const SingleAnnonce = () => {
                 <button> something  </button>   
             </div>
             <Title first={"about this listing "}></Title>
-           
 
             <div className=" picdiv flex flex-row items-start space-x-32 mx-auto my-[2%] ">
               
@@ -46,9 +53,9 @@ const SingleAnnonce = () => {
                      
                      <div className=" w-[100%]">
                       <Swiper>
-                        <SwiperSlide> <img src={img} alt="" /></SwiperSlide>
-                        <SwiperSlide> <img src={img} alt="" /></SwiperSlide>
-                        <SwiperSlide> <img src={img} alt="" /></SwiperSlide>
+                        {imgsUrls.map((imgUrl) => {
+                          return <SwiperSlide> <img src={`http://127.0.0.1:8000${imgUrl}`} alt="" /></SwiperSlide>
+                        })}
                       </Swiper>
                     
                      </div>
