@@ -85,117 +85,162 @@ const Research = () => {
          
     }
     useEffect(()=>useeffectfunction,['http://127.0.0.1:8000/api/recentannounces/']) 
+
+    const wilayas =
+[ 
+    "Adrar" , "Chlef" , "Laghouat" , "Oum El Bouaghi" , "Batna" , "Béjaïa" , "Biskra" , "Béchar" , 
+    "Blida" , "Bouira" , "Tamanrasset" , "Tébessa" ,  "Tlemcen" , "Tiaret" , "Tizi Ouzou" , "Alger" ,
+    "Djelfa" , "Jijel" , "Sétif" , "Saïda" , "Skikda" , "SidiBelAbbès" , "Annaba" , "Guelma" , "Constantine" , 
+    "Médéa" , "Mostaganem" , "M'Sila" , "Mascara" , "Ouargla" , "Oran" 
+]
+
+const types =
+[
+    "Land" , "Farmland" , "Apartment" , "House" , "Bungalow"
+]
+
+
      return ( 
         
       
          <div className=" flex flex-row items-start m-auto justify-between ">
-                        <div className=" flex flex-col p-[30px] h-screen border-r-2 w-[30%] border-lightgris">
+                        <div className=" flex flex-col p-[30px] h-screen border-r-2 w-[30%] border-lightgris ">
                                  <div className=" flex flex-col space-y-[3px]" >
+                            <h1 className="text-center text-ahmar text-xl font-bold"> Filtres </h1>
                                  <div className="flex flex-col ">
-                                    <label>Type</label>
+                                 <label>Type</label>
                                     <input 
-                                    type="text"
+                                    list="types"
+                                    name='type'
                                     required 
+                                    placeholder='type'
                                     value={aiType}
-                                    className="bg-lightgreen w-[90%] h-[30px] mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg"
+                                    className="bg-lightgreen w-[90%] h-[40px] mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg p-3"
                                     onChange ={(e)=> setType(e.target.value)}  
                                     />
+                                   
+                                   <datalist id='types'>
+                                                {types.map((type) =>(
+                                                <option value={type} className='w-full'/>
+                                                ))}
+                                      </datalist>
                                     </div>
 
                                     <div className="flex flex-col">
                                     <label> Wilaya </label>
-                                      <input
-                                            type="text"
-                                            required 
-                                            value={aiWilaya}
-                                            className="bg-lightgreen w-[90%] h-[30px] mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg"
-                                            onChange ={(e)=> setWilaya(e.target.value)} >
-                                         
-                                        </input>
+                                    <input
+                                     required 
+                                     list='wilayas'
+                                     name='willaya'
+                                     value={aiWilaya}
+                                     placeholder='Willaya'
+                                     className="bg-lightgreen w-[90%] h-[40px] mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg p-3"
+                                     onChange ={(e)=> setWilaya(e.target.value)} >
+                                     </input>
+                                      <datalist id='wilayas'>
+                                                {wilayas.map((willaya) =>(
+                                                <option value={willaya} className='w-full'/>
+                                                ))}
+                                      </datalist>
+                                     
+                                     
+
                                     </div> 
+                                   
 
                                     <div className="flex flex-col">
                                     <label> Commune </label>
                                       <input
                                             type="text"
                                             required 
+                                            placeholder='commune'
                                             value={aiCommune}
-                                            className="bg-lightgreen w-[90%] h-[30px] mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg "
+                                            className="bg-lightgreen w-[90%] h-[40px] mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg p-3"
                                             onChange ={(e)=> setCommune(e.target.value)} >
                                          
                                         </input>
                                     </div> 
 
-                                    <div className="flex flex-col">
-                                    <label> Year Min </label>
-                                      <input
-                                            type="text"
+                                    <div className="flex flex-col space-y-2">
+                                    <label> Period </label>
+                                    <div className="flex flex-row items-center">
+                                   
+                                    <input
+                                            type="date"
                                             required 
                                             value={yearmin}
-                                            className="bg-lightgreen w-[90%] h-[30px] mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg"
+                                            className="bg-lightgreen w-[50%] h-[40px] mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg p-3 "
                                             onChange ={(e)=> setYearmin(e.target.value)} >
                                          
                                         </input>
-                                    </div> 
-                                  
-                                   <div className="flex flex-col">
-                                    <label> Year max  </label>
-                                        <input
-                                            type="text"
+                                        <label> start date  </label>
+                                    </div>
+
+
+                                     <div className="flex flex-row items-center">
+                                     
+                                     <input
+                                            type="date"
                                             required 
-                                            value={yearmax}
-                                            className="bg-lightgreen w-[90%] h-[30px] mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg"
+                                            value={yearmin}
+                                            className="bg-lightgreen w-[50%] h-[40px] mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg p-3 "
                                             onChange ={(e)=> setYearMax(e.target.value)} >
                                          
                                         </input>
+                                        <label> ending date  </label>
                                     </div> 
+                                       
+                                    </div> 
+                                
 
                                     <div className="flex flex-col">
-                                                <label> Prix Min </label>
+                                                <label> Maximum Price </label>
                                                 <input 
-                                                type="text"
+                                                type="number"
                                                 required 
                                                 value={pricemin}
-                                                className="bg-lightgreen w-[90%] h-[30px] mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg"
+                                                className="bg-lightgreen w-[90%] h-[40px] mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg p-3"
                                                 onChange ={(e)=> setPricemin(e.target.value)}  
                                                 />
                                     </div>  
                             
                                     <div className="flex flex-col"> 
-                                                <label> Prix Max </label>
+                                                <label> Minimum Price  </label>
                                                 <input 
-                                                type="text"
+                                                type="number"
                                                 required 
                                                 value={pricemax}
-                                                className="bg-lightgreen w-[90%] h-[30px] mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg "
+                                                className="bg-lightgreen w-[90%] h-[40px] mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg p-3 "
                                                 onChange ={(e)=> setPricemax(e.target.value)}  
                                                 />
                                     </div>
 
                                  </div>
-                            
-                                    <button className="bg-white border-ahmar border-2 px-[25px] mt-[50px] rounded-[10px] hover:text-ahmar " onClick={handleFiltre}>
+                            <div className="bg-white relative mt-[20px] mx-auto">
+                            <button className="bg-white btn1 border-ahmar border-2 px-[25px]  rounded-[10px]  w-32 " onClick={handleFiltre}>
                                         <div className="flex flex-rox items-center justify-between">
                                             <img className="h-[30px]" src={filtreicon} alt="" />
                                             <p className="pl-[10px]"> Filtre </p>
                                         </div>   
-                                    </button>  
+                                    </button> 
+                            </div>
+                                   
                                 
                          </div>
 
-
-               <div className=" flex flex-col justify-center items-center mx-auto ">
+              <div className=" flex flex-col justify-center items-center mx-auto ">
                         
-                            <div className=" flex flex-row justify-center items-center  pt-[10px]">
+                            <div className=" flex flex-row justify-center items-center m-4 w-[70%] pt-[10px]">
                                     
                                             <input 
                                         type="text"
                                         required 
                                         value={research}
-                                        className="bg-lightgreen w-[700px] h-[40px]  rounded-[10px] border-lightgris border-2 "
+                                        placeholder='Search' 
+                                        className="bg-lightgreen w-[700px] h-[40px] px-4 rounded-[10px] rounded-tr-none rounded-br-none border-lightgris border-2 shadow-lightgris shadow-lg"
                                         onChange ={(e)=> {setResearch(e.target.value); console.log(research);}}  
                                         />
-                                        <button className="bg-ahmar px-[5px] rounded-[11px] hover:bg-gris " onClick={handleSearch}>
+                                        <button className="bg-ahmar px-[5px] rounded-tl-none rounded-bl-none rounded-[11px] hover:bg-gris  shadow-lightgris shadow-lg " onClick={handleSearch}>
                                         <div className="flex flex-rox items-center justify-between">
                                             <img className="h-[40px]" src={search} alt="" />
                                         </div>
@@ -203,12 +248,7 @@ const Research = () => {
                                         </button>
 
                             </div> 
-
-                            <div>
-                                
-                            </div>
-                            
-                            
+  
                
                              
             { error ? <div> there's an error : {error} </div> : <></>}
@@ -216,7 +256,7 @@ const Research = () => {
             { Ais ? <AnnMap Ais={Ais}></AnnMap> : <></>}
             
 
-                            </div>
+               </div>
         
          </div>
              

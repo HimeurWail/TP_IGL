@@ -12,28 +12,30 @@ function AnnounceCard(props) {
       img = './default.jpg';
     
   return (
-      <div className="h-[250px] lg:h-[310px] w-[150px] lg:w-[240px] p-1 shadow-lg rounded-sm flex flex-col justify-center gap-3">
-        <img alt='announce' src={img} className='h-44 w-44 mx-auto rounded-sm'/>
+      <div className="h-[250px] lg:h-[350px] w-[150px] lg:w-[240px] p-5 shadow-xl rounded-sm flex flex-col justify-center gap-3">
+        <img alt='announce' src={img} className='pt-4 h-48 w-50 mx-auto rounded-sm'/>
         <p className='mx-auto text-base lg:text-xl'>{Ai.annonceLocation}</p>
          
-        <div className='flex flex-row w-full gap-2 '>
-          <div className='h-6 flex flex-row gap-1 text-[9px] lg:text-xs'>
+        <div className='flex flex-col w-full gap-1 '>
+          <div className='h-6 flex flex-row gap-1 text-[9px] lg:text-sm'>
             <img alt='icon' src={Category} className='h-3 lg:h-4 w-4 lg:w-5 my-auto'/>
             <p className='my-auto'>{Ai.category}</p>
           </div>  
 
-          <div className='h-6 flex flex-row gap-1 text-[9px] lg:text-xs'>
+          <div className='h-6 flex flex-row gap-1 text-[9px] lg:text-sm'>
             <img alt='icon' src={Type} className='h-3 lg:h-4 w-4 lg:w-5 my-auto'/>
             <p className='my-auto'> {Ai.type}</p>
-          </div>  
-        </div>
+          </div> 
 
-        <div className='h-6 flex flex-row gap-1 text-[9px] lg:text-xs'>
+          <div className='h-6 flex flex-row gap-1 text-[9px] lg:text-sm'>
             <img alt='icon' src={surface} className='h-3 lg:h-4 w-4 lg:w-5 my-auto'/>
-            <p className='my-auto'> {Ai.surface} m </p>
+            <p className='my-auto'> {Ai.surface} m² </p>
+        </div> 
         </div>
 
-        <div className='h-6 flex flex-row justify-end border-t-2 border-lightgris'>
+        
+
+        <div className='h-6 flex flex-row justify-end border-t-4 border-lightgris'>
             <p className='mx-auto text-sm lg:text-lg'> {Ai.price} DA </p>
         </div>            
       </div>

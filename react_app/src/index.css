@@ -117,3 +117,41 @@ html {
    {
     filter: blur(2px) ; 
    }
+
+
+
+
+
+
+   .btn1
+ {
+   transition: transform 0.3s ease ;
+   
+
+ }
+ .btn1::after , .btn1::before
+ {
+   content: "";
+   position: absolute;
+   opacity: 0.3 ;
+   background: #EE462F;
+   border-radius: inherit;
+   height: 100%;
+   width: 100%;
+   left: 0;
+   bottom: 0;
+   z-index: -1 ; /*that means that it's behind */
+   transition: transform 0.3s ease ;
+ }
+ .btn1:hover
+ {
+   transform: translate(-12px , -12px );
+ }
+ .btn1:hover::after
+ {
+   transform: translate(6px , 6px );
+ }
+ .btn1:hover::before
+ {
+   transform: translate(12px,12px);
+ } 

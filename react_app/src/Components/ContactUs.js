@@ -75,7 +75,13 @@ const ContactUs = () => {
         />
 
 
-       {!isPending ?  <button className="cursor-pointer bg-ahmar text-white  mt-[10px] p-[8px] hover:bg-azra9 hover:text-black border-0 rounded-[8px]"> send your message  </button>:<button disabled> loading  ... </button>}
+       {!isPending ? 
+       <div className="bg-white relative ">
+ <button className="btn1 cursor-pointer bg-ahmar text-white  mt-[10px] p-[8px] border-0 rounded-[8px]"> send your message  </button>
+        
+       </div>
+       
+        :<button disabled> loading  ... </button>}
 
         </form>
         </div>
