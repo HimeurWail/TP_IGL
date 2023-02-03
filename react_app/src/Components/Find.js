@@ -1,10 +1,11 @@
 import React from "react";
 import studio from "../images/pics/Studio.svg"
-import nivVilla from "../images/pics/nivVilla.svg";
+import bungalow from "../images/pics/bungalow.jpg";
 import appartement from "../images/pics/appartement.svg";
-import chambre from "../images/pics/chambre.svg";
-import villa from "../images/pics/villa.svg";
+import farmland from "../images/pics/farmland.png";
+import house from "../images/pics/house.png";
 import Title from "./Style/Title";
+import { Link } from "react-router-dom";
 
 function Find() {
   return (
@@ -13,69 +14,70 @@ function Find() {
     <Title first={"Find a place that fits "}  second={"your comfort"}></Title>
 
 
-      <div className="flex flex-col m-[20px]  justify-center items-center">
-        <div className="flex flex-col lg:flex-row gap-12  px-[50px] pb-[20px]" align="center">
-          <div className=" 1 relative ">
-            <div>
-              <img className=" w-[300px]" src={studio} />
-            </div>
-            <div className=" absolute w-[100%] h-[100%] top-3/4">
-              <a href="#" className=" text-[20px] pl-[5px] pr-[5px] text-white font-bold hover:bg-white hover:text-black">
-                STUDIO
-              </a>
-            </div>
-          </div>
-          <div className=" 2 relative">
-            <div>
-              <img className=" w-[300px]" src={nivVilla} />
-            </div>
-            <div className=" absolute w-[100%] h-[100%] top-3/4 ">
-              <a href="#" className="text-[20px] pl-[5px] pr-[5px] text-white font-bold hover:bg-white hover:text-black">
-                NIVEAU VILLA
-              </a>
-            </div>
-          </div>
+     <div className="flex flex-row m-[20px] space-x-12 justify-center items-center">
 
+        <div className="single-item flex justify-center hover:scale-105 w-[300px] cursor-pointer ">  
+        <Link to={'/Plainlist'}>
+        <img src={appartement} alt="" className="" />  
+                        <div className="trendscontent text-xl  font-semibold">
+                            <p className=""> Appartement </p> 
+                       </div>
+        </Link>      
+                                                      
+        </div>
+
+
+       <div className="single-item flex justify-center hover:scale-105 w-[300px] cursor-pointer ">   
+       <Link to={'/Plainlist'}>                        
+                                  <img src={bungalow} alt="" className="" />  
+                                     <div className="trendscontent text-xl  font-semibold">
+                                          <p className=""> Bungalow </p> 
+                                     </div>
+         </Link>                                                  
+                                                           
+       </div>
           
-          <div className=" 3 relative">
-            <div>
-              <img className=" w-[300px]" src={appartement} />
-            </div>
-            <div className=" absolute w-[100%] h-[100%] top-3/4 ">
-              <a href="#" className="text-[20px] pl-[5px] pr-[5px] text-white font-bold hover:bg-white hover:text-black">
-                APPARTEMENT
-              </a>
-            </div>
-          </div>
+        <div className="single-item flex justify-center hover:scale-105 w-[300px] cursor-pointer ">   
+        <Link to={'/Plainlist'}>                         
+                        <img src={studio} alt="" className="" />  
+                                <div className="trendscontent text-xl  font-semibold">
+                                     <p className=""> studio </p> 
+                                </div>
+                                </Link>                                                 
+                                                           
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-12 px-[50px] " align="center">
 
-          <div className=" 1 relative">
-            <div>
-              <img className="w-[500px]" src={chambre} />
-            </div>
-            <div className=" absolute w-[100%] h-[100%] top-3/4">
-              <a href="#" className="text-[20px] pl-[5px] pr-[5px] text-white font-bold hover:bg-white hover:text-black">
-                CHAMBRE
-              </a>
-            </div>
-          </div>
+     </div>
 
+       
 
-          <div className=" 2 relative">
-            <div>
-              <img className="w-[500px]" src={villa} />
+     <div className="flex flex-row justify-center items-center lg:flex-row gap-12 space-x-12 " align="center">
+ 
+            <div className="single-item flex justify-center hover:scale-105 w-[350px] cursor-pointer ">        
+            <Link to={'/Plainlist'}>  
+                            <img src={house} alt="" className=" w-[400px]" />  
+                                        <div className="trendscontent text-xl  font-semibold">
+                                              <p className=""> House </p> 
+                          </div>   
+              </Link>                              
             </div>
-            <div className=" absolute w-[100%] h-[100%] top-3/4 ">
-              <a href="#" className=" text-[20px] pl-[5px] pr-[5px] text-white font-bold hover:bg-white hover:text-black">
-                VILLA
-              </a>
+           
+            
+            <div className="single-item flex justify-center hover:scale-105 w-[350px] cursor-pointer ">        
+            <Link to={'/Plainlist'}> 
+                            <img src={farmland} alt="" className=" w-[400px]" />  
+                              <div className="trendscontent text-xl  font-semibold">
+                                  <p className=""> Farm Land </p> 
+                              </div>   
+             </Link>                              
             </div>
-          </div>
-        </div>
-      </div>
+           
     </div>
+
+
+      </div>
+   
   );
 }
 

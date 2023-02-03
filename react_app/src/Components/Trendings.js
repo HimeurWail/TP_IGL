@@ -9,10 +9,10 @@ import wahran from "../images/pics/wahran.png" ;
 const Trending = () => {
 
     const [trends , setTrends] = useState(
-        [ { title: 'Algiers' , pic: Algiers , id:1 } , 
-          { title: 'Oran' , pic:wahran ,  id:2 } , 
-          { title: 'Setif' , pic:Setif ,  id:3 } ,
-          { title: 'Constantine' , pic:Constantine ,  id:4 } 
+        [ { title: 'AlGIERS' , pic: Algiers , id:1 } , 
+          { title: 'ORAN' , pic:wahran ,  id:2 } , 
+          { title: 'SETIF' , pic:Setif ,  id:3 } ,
+          { title: 'CONSTANTINE' , pic:Constantine ,  id:4 } 
         ]); 
 
 
@@ -27,13 +27,18 @@ const Trending = () => {
                       
            { trends.map((trend) =>
 
-                            (<div className=" flex flex-row  mx-auto mb-[30px]" key={trend.id}>
-                                <div className=" flex justify-center w-[250px] h-[250px] relative ">   
-                                   <img src={trend.pic} alt="" className="  z-0   border-gris shadow-cutegris shadow-xl rounded-sm  backdrop-blur-lg hover:scale-110 cursor-pointer " />  
-                                   <p className="absolute bottom-2 text-center text-white  text-xl z-10"> {trend.title} </p> 
-                                   
-                                </div>  
-                            </div>
+                (<div className=" flex flex-row  mx-auto mb-[30px]" key={trend.id}>
+                   
+                      <div className="single-item flex justify-center hover:scale-105 w-[250px] h-[250px] cursor-pointer">   
+                                  
+                                  <img src={trend.pic} alt="" className="hover:scale-110 cursor-pointer" />  
+                                  <div className="trendscontent text-xl  font-semibold">
+                                       <p className=""> {trend.title} </p> 
+                                  </div>
+                                  
+                                     
+                        </div>  
+               </div>
 
             ))}
                           

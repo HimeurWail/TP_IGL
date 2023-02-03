@@ -10,6 +10,7 @@ import AnnounceCard from "./Components/AnnounceCard";
 import AnnonceFormPage from "./pages/AnnonceFormPage";
 import GetImgs from "./pages/GetImgs";
 import { useEffect } from "react";
+import PlainList from "./pages/PlainListAnn";
 
 
 
@@ -56,6 +57,7 @@ function App() {
               <Route path="/Profile" element={<SingleProfile resetUserCallback = {resetUser}  auth={auth} userName={userName} userPic={userPic} name={name}/>}/>
               <Route path="/page:id" element={<SingleAnnonce/>}/>
               <Route path="/Research/:id" element={<SingleAnnonce/>}/> 
+              <Route path="/Plainlist" element={<PlainList/>}/> 
               <Route path="/Add" element={<AnnonceFormPage auth={auth} userName={userName} userPic={userPic} name={name}/>}/>
 
           </Routes>
