@@ -36,3 +36,10 @@ def upload_path(instance, filename):
 class AnnounceImg(models.Model):
     announceCode = models.CharField(max_length = 10)
     imgFile = models.ImageField(blank=True, null=True, upload_to = upload_path)
+
+class Formulaire(models.Model):
+    messagecode = models.CharField(max_length = 10, default=generate_unique_code, unique=True)
+    senderEmail = models.CharField(max_length=60, null=False)
+    message = models.CharField(max_length=1000, null=False)
+    announceCode = models.CharField(max_length = 10, null=False)
+    #createdAt = models.DateField(auto_now_add = True)

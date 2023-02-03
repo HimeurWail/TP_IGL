@@ -1,7 +1,7 @@
 from rest_framework import status, generics
-from .models import Announce, AnnounceImg
+from .models import Announce, AnnounceImg, Formulaire
 from django.http import HttpResponse
-from .serialisers import AnnounceImgSerializer, AnnounceSerializer, CreateAnnounceSerializer, AnnounceCardSerializer
+from .serialisers import AnnounceImgSerializer, AnnounceSerializer, CreateAnnounceSerializer, AnnounceCardSerializer, FormulaireSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
@@ -89,7 +89,7 @@ class GetRecentAnnounce(APIView):
                     break
             return Response(announces, status=status.HTTP_200_OK)
         return HttpResponse({'msg': 'aucune annonce trouvée'}, status=status.HTTP_411_LENGTH_REQUIRED)
-        
+
 class SearchAnnounce(APIView):
     queryset = Announce.objects.all()
     def post(self, request, *args, **kwargs):
@@ -108,4 +108,41 @@ class SearchAnnounce(APIView):
                     break
         return Response(announces, status=status.HTTP_200_OK)
 
-            
+class SendMessage(APIView):
+    def post(self, request, *args, **kwargs):
+        email = request.data.get('email')
+        message = request.data.get('message')
+        announceCode = request.data.get('announcecode')
+
+        if email == None or message == None or announceCode == None:
+            return Response({'message': 'missing data'}, status=status.HTTP_400_BAD_REQUEST)
+
+        newFormulaire = Formulaire.objects.create(senderEmail=email, message=message, announceCode=announceCode)
+        
+        if (newFormulaire):
+            return Response({'message': 'message well saved'}, status=status.HTTP_200_OK)
+        
+        return Response({'message': 'message not saved'}, status=status.HTTP_400_BAD_REQUEST)
+
+class GetMessages(APIView):
+    def post(self, request, *args, **kwargs):
+        email = request.data.get('email')
+        if email == None:
+            return Response({'message': 'missing data'}, status=status.HTTP_400_BAD_REQUEST)
+
+        announces = Announce.objects.filter(userId=email)
+        newAnnounces = []
+        for announce in announces:
+            newAnnounces.append(AnnounceSerializer(announce).data)
+        
+        messages = []
+        for announce in announces:
+            messages.append(Formulaire.objects.filter(announceCode=announce.announceCode))
+
+
+        newmessages  = []
+        for message in messages:
+            for msg in message:
+                newmessages.append(FormulaireSerializer(msg).data)
+ 
+        return Response(newmessages, status=status.HTTP_200_OK)

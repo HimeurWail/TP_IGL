@@ -6,7 +6,11 @@ import Trendings from "../Components/Trendings" ;
 import ContactUs from "../Components/ContactUs" ;
 import Footer from "../Components/Footer"; 
 
-const LandingPage = () => {
+const LandingPage = (props) => {
+    const auth = props.auth;
+    const userName = props.userName;
+    const userPic = props.userPic;
+    const name = props.name;
     return (
         <div >
             <Header></Header>
