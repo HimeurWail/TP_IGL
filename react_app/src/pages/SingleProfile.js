@@ -51,7 +51,7 @@ return (
           </div>
 
            {/* profile buttons */}
-      <div className="flex flex-col w-[100%] justify-center items-center space-y-6 pt-5">
+      <div className="flex flex-col h-64 w-[100%] justify-center items-center space-y-6 pt-5">
 
          
              <Link to={`/Add`}  className="w-[200px] h-[45px] px-4 mt-9 shadow-sm shadow-cutegris rounded-sm hover:shadow-gris hover:scale-105 ">
@@ -77,7 +77,7 @@ return (
 
       <div className="lg:w-[64%] ">
         <ProfileSwitchButtons></ProfileSwitchButtons>
-        <ListAnnonces></ListAnnonces>
+        <ListAnnonces userName={userName}></ListAnnonces>
       </div>
 
       {(nav || !props.auth) && <Navigate to="/" ></Navigate>}
