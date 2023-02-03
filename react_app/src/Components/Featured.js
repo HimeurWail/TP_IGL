@@ -7,6 +7,10 @@ import { useEffect, useRef, useState } from "react";
 import AnnounceCard from './AnnounceCard';
 import useFetch from './Functions/UseFetch';
 import Title from './Style/Title';
+import { Link } from "react-router-dom";
+
+import circle from '../images/pics/circle.png' ; 
+
 
 const Featured = () => {
 
@@ -17,47 +21,12 @@ const Featured = () => {
       fetch('http://127.0.0.1:8000/api/recentannounces/').then((res) =>{
           return res.json()
       }).then((data)=>{setAis(data)})
-    }, []);
-
-    
-  //const {Ais , isPending , error } = useFetch('http://localhost:8004/featured') ; 
-  
-   /*const Ais = [
-        {
-          title: "something",
-          aiCategory: "location",
-          aiType: "villa",
-          aiSurface: "240",
-          price: "Oum El Bouaghi",
-          bedroom: "03",
-          Description: " this is the Description for our little thin gbsjhgkjsg",
-          id: 1
-        },
-        {
-            title: "something",
-            aiCategory: "locationhhhhhhhhh",
-            aiType: "villa",
-            aiSurface: "240",
-            price: "Oum El Bouaghi",
-            bedroom: "03",
-            Description: " this is the Description for our little thin gbsjhgkjsg",
-            id: 2
-          },
-          {
-            title: "something",
-            aiCategory: "location",
-            aiType: "villa",
-            aiSurface: "240",
-            price: "Oum El Bouaghikdjrgfkhsbgfksjgg",
-            bedroom: "03",
-            Description: " this is the Description for our little thin gbsjhgkjsg",
-            id: 3
-          }
-      ]*/
+    }, ['http://127.0.0.1:8000/api/recentannounces/']);
 
     return (
-        <div id="Featured" className=" w-full h-screen pt-[90px]  " >
+        <div id="Featured" className=" w-full h-screen pt-[90px] relative " >
             <Title first={" Featured "}></Title>
+            <img src={circle} alt="" className=' absolute left-[52%] top-20 ' />
           <div className="flex items-center mx-auto md:space-x-8 sm:mt-[40px] md:mt-[40px] lg:space-x-6 lg:items-center lg:justify-center ">
           
             <div
@@ -66,12 +35,12 @@ const Featured = () => {
               }}
               className="cursor-pointer  hidden md:flex  w-[200px] md:w-[120px] lg:w-1/6"
             >
-              <img src={LeftArrow} className="w-[100px] h-[100px]" alt="" />
+              <img src={LeftArrow} className="w-[50px] h-[50px]" alt="" />
             </div>
    
             <Swiper
               ref={swiperRef}
-              spaceBetween={5}
+              spaceBetween={3}
               breakpoints={{
                 640: {
                   slidesPerView: 1,
@@ -80,7 +49,7 @@ const Featured = () => {
                   slidesPerView: 2,
                 },
                 1024: {
-                  slidesPerView: 3,
+                  slidesPerView: 5,
                 },
               }}
             >
@@ -98,7 +67,11 @@ const Featured = () => {
                             : "lg:scale-75"
                         }`}
                       >
-                      <AnnounceCard Ai={Ai} ></AnnounceCard>
+                       <Link to={`/Research/${Ai.announceCode}`}>
+                          <AnnounceCard Ai={Ai}></AnnounceCard > 
+                       </Link>
+
+
                       </div>
                     )}
                   </SwiperSlide>
@@ -112,7 +85,7 @@ const Featured = () => {
               }}
               className="cursor-pointer  hidden md:flex w-[200px] md:w-[120px] lg:w-1/6"
             >
-              <img src={RightArrow} className="w-[100px] h-[100px]" alt="" />
+              <img src={RightArrow} className="w-[50px] h-[50px]" alt="" />
             </div>
 
           </div>

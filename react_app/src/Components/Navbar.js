@@ -1,14 +1,18 @@
+/* eslint-disable jsx-a11y/alt-text */
 import { Link } from 'react-router-dom' ; 
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { gapi } from 'gapi-script';
 import { useState , useEffect } from 'react';
-
+import profilepic from "../images/icons/profile.svg" ; 
+import notif from "../images/icons/notif.svg" ; 
+import logo from "../images/icons/logo.svg"
 /* the Navbar still need updates, this isn't the final version, it is just for testing */
 
 const Navbar = (props) => {
     const [ profile, setProfile ] = useState([]);
-    const [authentificated, setAuthentificated] = useState(false); 
+    const authentificated = props.auth;
     const clientId = '763504218710-jee3n3jn6hvd315dfukpfet4hbjf869m.apps.googleusercontent.com';
+
     useEffect(() => {
         const initClient = () => {
             gapi.client.init({
@@ -20,7 +24,6 @@ const Navbar = (props) => {
     });
 
     const onSuccess = (res) => {
-        setAuthentificated(true);
         props.setUserCallback({name: res.profileObj.name, userName: res.profileObj.email, pic: res.profileObj.imageUrl}); //set user state of App.js
         setProfile(res.profileObj);
     };
@@ -29,18 +32,12 @@ const Navbar = (props) => {
         console.log('failed', err);
     };
 
-    const logOut = () => {
-        setAuthentificated(false);
-        props.resetUserCallback();
-    };
-
     
     return ( 
-        <nav className="navbar sticky z-10 top-0 p-[5px] m-auto  bg-azra9 cursor-pointer font-normal flex flex-row items-center jutify-center px-[15px] py-[10px] w-full">
-          <div className=''> 
-
-          <h1> logo here </h1>
-            </div>    
+        <nav className="navbar sticky z-10 top-0 p-[5px] m-auto  bg-azra9 cursor-pointer font-normal flex flex-row items-center jutify-center px-[15px] py-[0px] w-full">
+  
+          <img className='w-[100px] h-[100px]' src={logo} alt="" />
+             
                
           <div className="Btns px-5 mx-[10px] flex items-center justify-center ml-auto mr-auto ">
               <a className=' relative p-[10px] ml-[20px] ' href="/#Home"> Home </a> 
@@ -65,11 +62,14 @@ const Navbar = (props) => {
                         className='bg-ahmar m-2 p-2 hover:text-white rounded-[12px]'
                 />
             </div>
-            <div className={`${!authentificated && 'hidden'}`}>
-                <GoogleLogout
-                    clientId={clientId} buttonText="Log out" onLogoutSuccess={logOut}
-                    className='bg-ahmar m-2 p-2 hover:text-white rounded-[12px]'
-                />
+            <div className={`${!authentificated && 'hidden'}`} >
+                <div className=' flex flex-row space-x-5'>
+                <Link className=''  to="/Profile"> 
+                <img src={profilepic} className="w-[40px] h-[40px] hover:scale-90 " />
+                </Link>  
+                <img src={notif} className="w-[40px] h-[40px] hover:scale-90" />
+                </div>
+                
             </div>
             
          </div>

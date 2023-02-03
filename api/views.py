@@ -108,4 +108,10 @@ class SearchAnnounce(APIView):
                     break
         return Response(announces, status=status.HTTP_200_OK)
 
-            
+class GetAnnounce(APIView):
+    serializer_class = AnnounceSerializer
+    lookup_url_kwarg = 'code'
+    def get(self, request, *args, **kwargs):
+        code = request.GET.get(self.lookup_url_kwarg)  
+        announce = Announce.objects.filter(announceCode=code)
+        return Response(self.serializer_class(announce[0]).data, status=status.HTTP_200_OK)
