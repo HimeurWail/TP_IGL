@@ -7,6 +7,7 @@ import AnnMap from "../Components/AnnMap";
 const Research = () => {
 
     const [Ais , setAis] = useState(null); 
+    const [filtredAis, setFiltered] = useState(null);
     const [isPending , setisPending] = useState(true) ; 
     const [error , seterror] = useState(null) ; 
    
@@ -28,17 +29,46 @@ const Research = () => {
 
     }
 
+    const resetInfos = () =>{
+        setType('');
+        setWilaya('');
+        setCommune('');
+        setYearmin('');
+        setYearMax('');
+        setPricemin('');
+        setPricemax('');
+    }
+
     const handleFiltre = ()=>
     {
         let res = [];
+        let add = true;
         const array = Array.prototype.slice.call(Ais);
         for (let ai of array){
-            if(ai.category === "Sale"){
-                res.push(ai)
+            add = true; 
+            if((aiType !== '') && (ai.type !== aiType)){
+                add = false;
             }
+            else if ((aiWilaya !== '')&&(ai.willaya !== aiWilaya)){
+                add = false;
+            }
+            else if ((aiCommune !== '')&&(ai.commune !== aiCommune)){
+                add = false;
+            }
+            else if (((yearmin !== '')&&(yearmax !== ''))&&((ai.createdAt > yearmax) || (ai.createdAt < yearmin))){
+                add = false;
+            }
+            else if (((pricemin !== '')&&(pricemax !== ''))&&((ai.price > pricemax) || (ai.price < pricemin))){
+                add = false;
+            }
+            if (add){
+                res.push(ai);
+            }
+            
         }
         console.log(res);
         setAis(res);
+        resetInfos();
     }
 
     const[research,setResearch]= useState("") ;
@@ -182,9 +212,9 @@ const types =
                                      <input
                                             type="date"
                                             required 
-                                            value={yearmin}
+                                            value={yearmax}
                                             className="bg-lightgreen w-[50%] h-[40px] mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg p-3 "
-                                            onChange ={(e)=> setYearMax(e.target.value)} >
+                                            onChange ={(e)=> {setYearMax(e.target.value); alert(yearmax)}} >
                                          
                                         </input>
                                         <label> ending date  </label>
@@ -194,7 +224,7 @@ const types =
                                 
 
                                     <div className="flex flex-col">
-                                                <label> Maximum Price </label>
+                                                <label> Minimum Price </label>
                                                 <input 
                                                 type="number"
                                                 required 
@@ -205,7 +235,7 @@ const types =
                                     </div>  
                             
                                     <div className="flex flex-col"> 
-                                                <label> Minimum Price  </label>
+                                                <label> Maximum Price  </label>
                                                 <input 
                                                 type="number"
                                                 required 

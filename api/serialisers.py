@@ -15,7 +15,7 @@ class AnnounceSerializer(serializers.ModelSerializer):
 class AnnounceCardSerializer(serializers.ModelSerializer):
     class Meta:
         model = Announce
-        fields = ('announceCode', 'category', 'type', 'price', 'surface', 'createdAt')
+        fields = ('announceCode', 'category', 'type', 'price', 'surface', 'willaya', 'createdAt')
 
 class AnnounceImgSerializer(serializers.ModelSerializer):
     class Meta:

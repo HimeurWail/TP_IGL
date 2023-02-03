@@ -114,4 +114,26 @@ class GetAnnounce(APIView):
     def get(self, request, *args, **kwargs):
         code = request.GET.get(self.lookup_url_kwarg)  
         announce = Announce.objects.filter(announceCode=code)
-        return Response(self.serializer_class(announce[0]).data, status=status.HTTP_200_OK)
+        if len(announce) > 0:
+            return Response(self.serializer_class(announce[0]).data, status=status.HTTP_200_OK)
+        return HttpResponse({"msg": "announce not found"}, status=status.HTTP_404_NOT_FOUND)
+
+class GetUserAnnounces(APIView):
+    serializer_class = AnnounceCardSerializer
+    lookup_url_kwarg = 'user'
+
+    def get(self, request, *args, **kwargs):
+        userName = request.GET.get(self.lookup_url_kwarg)
+        data = Announce.objects.filter(userId=userName)
+        if len(data)>0:
+            announces = []
+            for announce in data:
+                listing = self.serializer_class(announce).data
+                imgUrls = AnnounceImg.objects.filter(announceCode = listing.get('announceCode'))
+                if len(imgUrls)>0:
+                    listing.update({'imgURL': AnnounceImgSerializer(imgUrls[0]).data.get('imgFile')})
+                else:
+                    listing.update({'imgURL': 'default'})
+                announces.append(listing)
+            return Response(announces, status=status.HTTP_200_OK)
+        return HttpResponse({'msg': 'aucune annonce trouvée'}, status=status.HTTP_411_LENGTH_REQUIRED)
