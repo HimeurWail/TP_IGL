@@ -68,15 +68,15 @@ class AnnounceView(generics.ListAPIView):
     serializer_class=AnnounceSerializer
 
 class GetRecentAnnounce(APIView):
-    queryset = list(Announce.objects.all())
+    queryset = Announce.objects.all()
     serializer_class=AnnounceCardSerializer
 
     def get(self, request, *args, **kwargs):
-        if len(self.queryset)>0 :
-            self.queryset.sort(key=lambda x: x.createdAt, reverse=True)
+        data = Announce.objects.all().order_by('-createdAt')
+        if len(data)>0 :
             announces = []
             cpt = 0
-            for announce in self.queryset:
+            for announce in data:
                 listing = self.serializer_class(announce).data
                 imgUrls = AnnounceImg.objects.filter(announceCode = listing.get('announceCode'))
                 if len(imgUrls)>0:

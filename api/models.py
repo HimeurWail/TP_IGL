@@ -26,7 +26,7 @@ class Announce(models.Model):
     commune = models.CharField(max_length=40, null=False)
     adress = models.CharField(max_length=256, null=False)
     userContacts = models.CharField(max_length=1000, null=False) 
-    userId = models.CharField(max_length=60, null=False, unique=True)
+    userId = models.CharField(max_length=60, null=False)
     createdAt = models.DateField(auto_now_add = True)
 
 def upload_path(instance, filename):
