@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import Title from "../Components/Style/Title";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import img from "../images/pics/nivVilla.svg" ; 
 import { useEffect, useRef } from "react";
 import heart from "../images/icons/heart.svg"
 import { useState } from "react";

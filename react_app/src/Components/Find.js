@@ -1,5 +1,5 @@
 import React from "react";
-import studio from "../images/pics/Studio.svg"
+import Land from "../images/pics/land.jpg"
 import bungalow from "../images/pics/bungalow.jpg";
 import appartement from "../images/pics/appartement.svg";
 import farmland from "../images/pics/farmland.png";
@@ -39,9 +39,9 @@ function Find() {
           
         <div className="single-item flex justify-center hover:scale-105 w-[300px] cursor-pointer ">   
         <Link to={'/Plainlist'}>                         
-                        <img src={studio} alt="" className="" />  
+                        <img src={Land} alt="" className="" />  
                                 <div className="trendscontent text-xl  font-semibold">
-                                     <p className=""> studio </p> 
+                                     <p className=""> Land </p> 
                                 </div>
                                 </Link>                                                 
                                                            

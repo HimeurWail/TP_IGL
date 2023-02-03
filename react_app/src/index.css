@@ -93,6 +93,7 @@ html {
    .single-item .trendscontent 
    {  position: absolute;
       transition: 0.7s all ;
+      border-radius: 7px;
       top: 0;
       display: flex;
       justify-content: center;

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {BrowserRouter as Router , Route, Routes} from "react-router-dom";
 import LandingPage from "./pages/Landingpage";
-import Page from "./pages/Page";
 import SingleAnnonce from "./pages/SingleAnnonce";
 import SingleProfile from "./pages/SingleProfile"
 import Navbar from "./Components/Navbar";
@@ -9,7 +8,7 @@ import Research from "./pages/Research";
 import AnnounceCard from "./Components/AnnounceCard";
 import AnnonceFormPage from "./pages/AnnonceFormPage";
 import GetImgs from "./pages/GetImgs";
-import { useEffect } from "react";
+
 import PlainList from "./pages/PlainListAnn";
 
 
