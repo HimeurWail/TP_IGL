@@ -141,13 +141,14 @@ class GetUserAnnounces(APIView):
 class SendMessage(APIView):
     def post(self, request, *args, **kwargs):
         email = request.data.get('email')
+        receiver = request.data.get('receiver')
         message = request.data.get('message')
         announceCode = request.data.get('announcecode')
 
         if email == None or message == None or announceCode == None:
             return Response({'message': 'missing data'}, status=status.HTTP_400_BAD_REQUEST)
 
-        newFormulaire = Formulaire.objects.create(senderEmail=email, message=message, announceCode=announceCode)
+        newFormulaire = Formulaire.objects.create(senderEmail=email, receiverEmail=receiver, message=message, announceCode=announceCode)
         
         if (newFormulaire):
             return Response({'message': 'message well saved'}, status=status.HTTP_200_OK)
