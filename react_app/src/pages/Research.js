@@ -7,7 +7,7 @@ import AnnMap from "../Components/AnnMap";
 const Research = () => {
 
     const [Ais , setAis] = useState(null); 
-    const [filtredAis, setFiltered] = useState(null);
+    const [filtredAis, setFiltered] = useState(null);  
     const [isPending , setisPending] = useState(true) ; 
     const [error , seterror] = useState(null) ; 
    
@@ -23,6 +23,7 @@ const Research = () => {
         .then((res) => {return res.json() ;})
         .then((data) => {
             setAis(data);
+            setFiltered(data);
             setisPending(false);
             seterror(null);
         })
@@ -67,7 +68,7 @@ const Research = () => {
             
         }
         console.log(res);
-        setAis(res);
+        setFiltered(res);
         resetInfos();
     }
 
@@ -95,6 +96,7 @@ const Research = () => {
           }) 
          .then(Ais=>{
             setAis(Ais) ; 
+            setFiltered(Ais);
             setisPending(false) ;
             seterror(null) ;  
          })
@@ -283,7 +285,7 @@ const types =
                              
             { error ? <div> there's an error : {error} </div> : <></>}
             { isPending ? <div> Loading ... </div> : <></>}
-            { Ais ? <AnnMap Ais={Ais}></AnnMap> : <></>}
+            { Ais ? <AnnMap Ais={filtredAis}></AnnMap> : <></>}
             
 
                </div>
