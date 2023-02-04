@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import AnnounceImg
+from .models import AnnounceImg, Formulaire
 from .models import Announce, AnnounceImg
 
 class CreateAnnounceSerializer(serializers.ModelSerializer):
@@ -26,3 +26,8 @@ class AnnounceImgSerializer(serializers.ModelSerializer):
     class Meta:
         model = AnnounceImg
         fields = ('announceCode', 'imgFile')
+
+class CreatFormulaireSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Formulaire
+        fields = ('announceCode', 'senderEmail', 'message')
