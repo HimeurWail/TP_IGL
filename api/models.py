@@ -40,6 +40,7 @@ class AnnounceImg(models.Model):
 class Formulaire(models.Model):
     messagecode = models.CharField(max_length = 10, default=generate_unique_code, unique=True)
     senderEmail = models.CharField(max_length=60, null=False)
+    receiverEmail = models.CharField(max_length=60, null=False, default="receiver")
     message = models.CharField(max_length=1000, null=False)
     announceCode = models.CharField(max_length = 10, null=False)
     createdAt = models.DateField(auto_now_add = True)
