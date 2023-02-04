@@ -72,7 +72,10 @@ const Navbar = (props) => {
                 <Link className=''  to="/Profile"> 
                 <img src={profileicon} className="lg:w-[40px] w-[30px] h-[30px] lg:h-[40px] hover:scale-90 " />
                 </Link>  
+                <Link to="/MsgPage">
                 <img src={notif} className="lg:w-[40px] w-[30px] h-[30px] lg:h-[40px] hover:scale-90" />
+                </Link>
+               
                 </div>
                  </div>
             <button className="nav-btn" onClick={showNavbar}>
