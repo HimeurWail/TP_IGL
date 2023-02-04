@@ -72,8 +72,6 @@ const Research = () => {
     }
 
     const[research,setResearch]= useState("") ;
-
-    const [motsCles , setMots] = useState('') ; 
     const [aiType, setType] = useState('') ; 
     const [aiWilaya, setWilaya] = useState('') ; 
     const [aiCommune, setCommune] = useState('') ;
@@ -114,6 +112,7 @@ const Research = () => {
          abortCont.abort()}
          
     }
+
     useEffect(()=>useeffectfunction,['http://127.0.0.1:8000/api/recentannounces/']) 
 
     const wilayas =
@@ -125,19 +124,18 @@ const Research = () => {
 ]
 
 const types =
-[
-    "Land" , "Farmland" , "Apartment" , "House" , "Bungalow"
-]
+[ "Land" , "Farmland" , "Apartment" , "House" , "Bungalow" ]
 
 
      return ( 
         
       
-         <div className=" flex flex-row items-start m-auto justify-between ">
+         <div className=" flex flex-row sm:flex-col items-start m-auto justify-between ">
                         <div className=" flex flex-col p-[30px] h-screen border-r-2 w-[30%] border-lightgris ">
                                  <div className=" flex flex-col space-y-[3px]" >
                             <h1 className="text-center text-ahmar text-xl font-bold"> Filtres </h1>
-                                 <div className="flex flex-col ">
+
+                                    <div className="flex flex-col ">
                                  <label>Type</label>
                                     <input 
                                     list="types"
@@ -177,7 +175,6 @@ const types =
 
                                     </div> 
                                    
-
                                     <div className="flex flex-col">
                                     <label> Commune </label>
                                       <input
@@ -222,7 +219,6 @@ const types =
                                        
                                     </div> 
                                 
-
                                     <div className="flex flex-col">
                                                 <label> Minimum Price </label>
                                                 <input 

@@ -1,7 +1,7 @@
 const PlainList = () => {
     return ( 
         <div className="bg-beige pt-[5px]">
-            here
+           une page 
         </div>
      );
 }
