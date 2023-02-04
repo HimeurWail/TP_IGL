@@ -54,8 +54,8 @@ function App() {
               <Route index path="/" element={<LandingPage auth={auth} userName={userName} userPic={userPic} name={name}/>}/>
               <Route path="/Research" element={<Research auth={auth} userName={userName} userPic={userPic} name={name}/>}/>
               <Route path="/Profile" element={<SingleProfile resetUserCallback = {resetUser}  auth={auth} userName={userName} userPic={userPic} name={name}/>}/>
-              <Route path="/page:id" element={<SingleAnnonce/>}/>
-              <Route path="/Research/:id" element={<SingleAnnonce/>}/> 
+              <Route path="/page:id" element={<SingleAnnonce auth={auth} userName={userName}/>}/>
+              <Route path="/Research/:id" element={<SingleAnnonce auth={auth} userName={userName}/>}/> 
               <Route path="/Plainlist" element={<PlainList/>}/> 
               <Route path="/Add" element={<AnnonceFormPage auth={auth} userName={userName} userPic={userPic} name={name}/>}/>
 

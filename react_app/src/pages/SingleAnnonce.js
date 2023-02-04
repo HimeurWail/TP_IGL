@@ -9,7 +9,7 @@ import { useState } from "react";
 import category from "../images/icons/category.svg" ; 
 import typee from "../images/icons/house.svg" ; 
 import surface from "../images/icons/surface.svg" ; 
-import bedrooms from "../images/icons/bedrooms.svg" ;
+import wilaya from "../images/icons/wilaya.png" ;
 import position from "../images/icons/positionicon.png" ; 
 import LeftArrow from "../images/icons/leftt.png" ; 
 import RightArrow from "../images/icons/rightt.png" ; 
@@ -23,7 +23,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 
-const SingleAnnonce = () => {
+const SingleAnnonce = (props) => {
    const {id}= useParams() ; 
    const swiperRef = useRef(null);
    const navigationPrevRef = useRef(null)
@@ -125,7 +125,7 @@ const SingleAnnonce = () => {
                             </div>
                           </div>
 
-                          <div className=" h-[60%] flex flex-col justify-center items-center mx-auto ">
+                          <div className={` h-[60%] ${!props.auth && "hidden"} flex flex-col justify-center items-center mx-auto `}>
                             <label className="text-center"> Make an Offer </label>
                             <input
                              type="textarea"
@@ -193,7 +193,7 @@ const SingleAnnonce = () => {
                  </div>
                  <div className="flex flex-col justify-center items-center 
                  h-[220px] w-[20%] border-2 border-lightgris ">
-                    <img src={bedrooms} alt=""  />
+                    <img src={wilaya} alt=""  />
                     <p className="text-opacity-50 text-gris"> Wilaya  </p>
                     <p> {Ai.willaya}  </p>
                  </div>
