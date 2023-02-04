@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import AnnounceView, CreatAnnounceImg, GetAnnounceImg, GetUserAnnounces, SaveAnnounce, GetRecentAnnounce, SearchAnnounce, GetAnnounce
+from .views import AnnounceView, CreatAnnounceImg, GetAnnounceImg, GetUserAnnounces, SaveAnnounce, GetRecentAnnounce, SearchAnnounce, GetAnnounce, SendMessage
 
 urlpatterns = [
     path('saveimgs/', CreatAnnounceImg.as_view()),
@@ -9,5 +9,6 @@ urlpatterns = [
     path('userannounces/', GetUserAnnounces.as_view()),
     path('announce/', GetAnnounce.as_view()),
     path('recentannounces/', GetRecentAnnounce.as_view()),
-    path('search/', SearchAnnounce.as_view())
+    path('search/', SearchAnnounce.as_view()),
+    path('sendmessage/', SendMessage.as_view())
 ]

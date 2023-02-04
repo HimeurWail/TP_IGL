@@ -39,7 +39,18 @@ const SingleAnnonce = (props) => {
    }  
    const SendMessage = ()=>
    {
-    // here we handle the backend addition
+    const requestOptions = {
+      method: 'POST',
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: props.userName,  
+        message: message,   
+        announcecode: id
+      })
+    };
+     fetch("http://127.0.0.1:8000/api/sendmessage/", requestOptions)
+    .then((res) =>{return res.json();}).then((msg) => console.log(msg))
+    .catch((err) => console.log(err));
    }  
    useEffect(() => {
     fetch(`http://127.0.0.1:8000/api/announce/?code=`+id).then((res) => {return res.json();}).then((data)=> {setAi(data)} ).catch((err) => console.log(err))
@@ -125,7 +136,7 @@ const SingleAnnonce = (props) => {
                             </div>
                           </div>
 
-                          <div className={` h-[60%] ${!props.auth && "hidden"} flex flex-col justify-center items-center mx-auto `}>
+                          <div className={` h-[60%] ${((!props.auth)||(Ai.userId === props.userName))  && "hidden"} flex flex-col justify-center items-center mx-auto `}>
                             <label className="text-center"> Make an Offer </label>
                             <input
                              type="textarea"
@@ -145,7 +156,7 @@ const SingleAnnonce = (props) => {
                           </div>
                       </div>
 
-                      <div className="flex flex-col justify-center items-center ">
+                      <div className={`flex flex-col justify-center items-center ${((!props.auth)||(Ai.userId === props.userName)) && "hidden"}`}>
                            <button onClick={AddToFav} className=" bg-white border-lightgris  border-2 px-[25px] py-[5px] mt-[10px] rounded-[5px] hover:bg-black hover:text-white "> 
                                    <div className="flex flex-rox items-center justify-between">
                                             <img className="h-[20px]" src={heart} alt="" />
