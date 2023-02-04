@@ -22,10 +22,12 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
+
 const SingleAnnonce = () => {
    const {id}= useParams() ; 
    const swiperRef = useRef(null);
-
+   const navigationPrevRef = useRef(null)
+   const navigationNextRef = useRef(null)
    const [message , setMessage] = useState('') ; 
 
    const [Ai,setAi] = useState({});
@@ -72,9 +74,13 @@ const SingleAnnonce = () => {
                       modules={[Navigation, Pagination, Scrollbar, A11y]}
                      
                       navigation={{
-                        prevEl: '.prev',
-                        nextEl: '.next',
+                        prevEl: navigationPrevRef.current,
+                        nextEl: navigationNextRef.current,
                       }}
+                      onBeforeInit={(swiper) => {
+                        swiper.params.navigation.prevEl = navigationPrevRef.current;
+                        swiper.params.navigation.nextEl = navigationNextRef.current;
+                   }}
                       effect="fade"
                       pagination={{ clickable: true }}
                                       
@@ -83,7 +89,8 @@ const SingleAnnonce = () => {
                           return <SwiperSlide> <img className="h-[310px] w-[450px] py-3" src={`http://127.0.0.1:8000${imgUrl}`} alt="" /></SwiperSlide>
                         })}
                       </Swiper>
-                    
+                      <div ref={navigationPrevRef} />
+      <div ref={navigationNextRef} />
                     { /* <div
               onClick={() => {
                 swiperRef.current.swiper.slideNext();
