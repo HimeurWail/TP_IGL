@@ -2,8 +2,9 @@
 import { Link } from 'react-router-dom' ; 
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { gapi } from 'gapi-script';
-import { useState , useEffect } from 'react';
-import profilepic from "../images/icons/profile.svg" ; 
+import { useState , useEffect, useRef } from 'react';
+import { FaBars, FaTimes } from "react-icons/fa";
+import profileicon from "../images/icons/profile.svg" ; 
 import notif from "../images/icons/notif.svg" ; 
 import logo from "../images/icons/logo.svg"
 /* the Navbar still need updates, this isn't the final version, it is just for testing */
@@ -31,25 +32,29 @@ const Navbar = (props) => {
     const onFailure = (err) => {
         console.log('failed', err);
     };
+    const navRef = useRef();
+
+    const showNavbar = () => {
+        navRef.current.classList.toggle("responsive_nav");
+    };
 
     
     return ( 
-        <nav className="navbar sticky z-10 top-0 p-[5px] m-auto  bg-azra9 cursor-pointer font-normal flex flex-row items-center jutify-center px-[15px] py-[0px] w-full">
-  
-          <img className='w-[100px] h-[100px]' src={logo} alt="" />
-             
-               
-          <div className="Btns px-5 mx-[10px] flex items-center justify-center ml-auto mr-auto ">
-              <a className=' relative p-[10px] ml-[20px] ' href="/#Home"> Home </a> 
+        <header className='sticky z-10 top-0 '>
+            <img className='lg:w-[100px] w-[70px] h-[70px] lg:h-[100px] ml-0' src={logo} alt="" />
+            <nav ref={navRef} className=' Btns px-5 mx-[10px] ml-auto mr-auto  '>
+            <a className=' relative p-[10px] ml-[20px] ' href="/#Home"> Home </a> 
               <a className=' relative p-[10px] ml-[20px] ' href="/#Find"> Find </a>
               <a className=' relative p-[10px] ml-[20px] ' href="/#Featured"> Featured </a>
               <a className=' relative p-[10px] ml-[20px] ' href="/#Trendings"> Trendings </a>
               <a className=' relative p-[10px] ml-[20px] ' href="/#ContactUs"> Contact Us </a>
              <Link className=' relative p-[10px] ml-[20px] '  to="/Research"> Research </Link> 
-              
-          </div>
-
-          <div className="sign px-[50px] items-end flex ">
+                <button
+                    className="nav-btn nav-close-btn"
+                    onClick={showNavbar}>
+                    <FaTimes />
+                </button>
+            </nav>
             <div className={`${authentificated && 'hidden'}`}>
                 <GoogleLogin
                         clientId={clientId}
@@ -60,21 +65,20 @@ const Navbar = (props) => {
                         prompt="select_account"
                         isSignedIn={true}
                         className='bg-ahmar m-2 p-2 hover:text-white rounded-[12px]'
-                />
-            </div>
-            <div className={`${!authentificated && 'hidden'}`} >
-                <div className=' flex flex-row space-x-5'>
+                         />
+                 </div>
+                 <div className={`${!authentificated && 'hidden'}`}>
+                 <div className=' flex flex-row space-x-5 '>
                 <Link className=''  to="/Profile"> 
-                <img src={profilepic} className="w-[40px] h-[40px] hover:scale-90 " />
+                <img src={profileicon} className="lg:w-[40px] w-[30px] h-[30px] lg:h-[40px] hover:scale-90 " />
                 </Link>  
-                <img src={notif} className="w-[40px] h-[40px] hover:scale-90" />
+                <img src={notif} className="lg:w-[40px] w-[30px] h-[30px] lg:h-[40px] hover:scale-90" />
                 </div>
-                
-            </div>
-            
-         </div>
-      
-        </nav>
+                 </div>
+            <button className="nav-btn" onClick={showNavbar}>
+                <FaBars />
+            </button>
+        </header>
      );
 }
  

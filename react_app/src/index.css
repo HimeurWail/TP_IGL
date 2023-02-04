@@ -15,10 +15,18 @@ html {
 }
 
 /* - - - - - - - -  STYLES FOR LANDING PAGE  - - - - - - - - */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0 2rem;
+  background-color:#A8D4FD;
+  color:#000000;
+}
 
-  .navbar .Btns a::after
-  { /* after is the child of the ancher tag */
-      content: '';
+nav a::after{
+  content: '';
       height: 2px;
       width: 0;   /* 100% will be there but  0 will go away untill we click */
       background: #EE462F;
@@ -27,12 +35,64 @@ html {
       top: 40px ; 
       /*transition very important */
       transition: 0.5s;
-  }
-
-  .navbar .Btns a:hover::after
+}
+nav a:hover::after
 {    width: 100%;  
 }
-  
+header .nav-btn {
+  padding: 5px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  color:#000000;
+  visibility: hidden;
+  opacity: 0;
+  font-size: 1.8rem;
+}
+
+header div,
+nav {
+  display: flex;
+  align-items: center;
+}
+@media only screen and (max-width: 1024px) {
+  header .nav-btn {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  header nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color:#A8D4FD;
+    transition: 1s;
+    transform: translateY(-100vh);
+  }
+
+  header .responsive_nav {
+    transform: none;
+  }
+
+  nav .nav-close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+
+  nav a {
+    font-size: 1.5rem;
+  }
+}
+
 .rotate
 {
   -moz-animation: spin 1s linear infinite;
@@ -76,8 +136,7 @@ html {
     border-radius: 7px;
    }
 
-
-.single-item
+   .single-item
 {
   position: relative ; 
   float: left;
@@ -117,11 +176,6 @@ html {
    {
     filter: blur(2px) ; 
    }
-
-
-
-
-
 
    .btn1
  {
