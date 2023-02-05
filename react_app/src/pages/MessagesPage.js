@@ -49,7 +49,7 @@ const MessagesPage = (props) => {
 
                  <div className="flex justify-center mb-[5px] pr-0">
                  <button className="btn1 cursor-pointer bg-ahmar text-white  mt-[10px] p-[5px] border-0 rounded-[8px]">
-                 <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="_blank" > Contact sender </a>
+                 <a href={"mailto: "+Msg.senderEmail} target="_blank" > Contact sender </a>
                  </button >
                  </div>
 
