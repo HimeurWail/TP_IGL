@@ -9,12 +9,12 @@ import { Link } from "react-router-dom";
 
 function Find() {
   return (
-    <div align="center" id="Find" className="h-screen w-full pt-[5%] ">
+    <div align="center" id="Find" className="h-screen w-full pt-[5%] mt-0 lg:mt-[115px]">
     
     <Title first={"Find a place that fits "}  second={"your comfort"}></Title>
 
 
-     <div className="flex flex-row m-[20px] space-x-12 justify-center items-center">
+     <div className="flex  flex-col lg:flex-row m-[20px] space-y-6 lg:space-x-12 justify-center items-center">
 
         <div className="single-item flex justify-center hover:scale-105 w-[300px] cursor-pointer ">  
         <Link to={'/Plainlist'}>
@@ -26,7 +26,8 @@ function Find() {
                                                       
         </div>
 
-
+      
+      
        <div className="single-item flex justify-center hover:scale-105 w-[300px] cursor-pointer ">   
        <Link to={'/Plainlist'}>                        
                                   <img src={bungalow} alt="" className="" />  
@@ -52,11 +53,11 @@ function Find() {
 
        
 
-     <div className="flex flex-row justify-center items-center lg:flex-row gap-12 space-x-12 " align="center">
+     <div className="flex flex-col lg:flex-row justify-center items-center lg:flex-row lg:gap-12 lg:space-x-12 space-y-6" align="center">
  
             <div className="single-item flex justify-center hover:scale-105 w-[350px] cursor-pointer ">        
             <Link to={'/Plainlist'}>  
-                            <img src={house} alt="" className=" w-[400px]" />  
+                          <img src={house} alt="" className="w-[400px]" />  
                                         <div className="trendscontent text-xl  font-semibold">
                                               <p className=""> House </p> 
                           </div>   
@@ -74,6 +75,7 @@ function Find() {
             </div>
            
     </div>
+    
 
 
       </div>

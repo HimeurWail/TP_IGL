@@ -18,11 +18,11 @@ const Trending = () => {
 
     return ( 
          
-        <div id="Trendings" className=" w-full h-screen  pt-[5%] ">
+        <div id="Trendings" className=" w-full h-screen  pt-[5%] lg:mt-[-100px] mt-[-150px]">
 
             <Title first="Trending Destination" ></Title>
 
-           <div className=" flex flex-row justify-center items-center mx-auto mt-[50px] ">
+           <div className=" flex flex-col lg:flex-row justify-center items-center mx-auto mt-[15px] lg:mt-[50px] ">
                        
                       
            { trends.map((trend) =>

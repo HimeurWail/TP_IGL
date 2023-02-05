@@ -35,18 +35,18 @@ const ContactUs = () => {
 
 
     return ( 
-    <div id="ContactUs" className="pt-[5%] h-screen w-full">
+    <div id="ContactUs" className="pt-[5%] h-screen w-full lg:mt-[-100px] mt-[630px]">
         <Title className="m-[30px]" first={"Get in touch"}></Title>
 
-        <div className="createform p-[30px] flex lg:flex-row lg:justify-center lg:items-start gap-[10%]">
+        <div className="createform p-[30px] flex flex-col lg:flex-row justify-center items-center items-start gap-[10%]">
       
         <div>
-           <img src={illustration} alt="" />
+           <img  className="w-[300px] lg:w-[400px]" src={illustration} alt="" />
         </div>
       
         <form onSubmit={handleSubmit}>
     
-    <label> Full Name : </label>
+        <label> Full Name : </label>
             <input 
             type="text"
             required 

@@ -6,7 +6,7 @@ const AnnMap = ({Ais}) => {
         <div className=" flex flex-wrap justify-center p-[10px]">  
         {Ais.map((Ai) =>
         
-        (<div className=" flex flex-row w-1/3 mx-auto mb-[30px] " key={Ai.id}>
+        (<div className="  flex flex-row w-1/2 lg:w-1/3 mx-auto mb-[30px] " key={Ai.id}>
             <Link to={`/Research/${Ai.announceCode}`}>
                 <div className=" w-12">
                 <AnnounceCard Ai={Ai}></AnnounceCard > 
