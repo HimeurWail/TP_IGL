@@ -6,7 +6,7 @@ import { useState , useEffect, useRef } from 'react';
 import { FaBars, FaTimes } from "react-icons/fa";
 import profileicon from "../images/icons/profile.svg" ; 
 import notif from "../images/icons/notif.svg" ; 
-import logo from "../images/icons/logo.svg"
+import logo from "../images/icons/logo.png"
 /* the Navbar still need updates, this isn't the final version, it is just for testing */
 
 const Navbar = (props) => {

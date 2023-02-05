@@ -39,7 +39,7 @@ const Header = () => {
                 
              </div>  
               
-            <img src={whitespace} alt="" className=' absolute top-[450px] '/>
+            <img src={whitespace} alt="" className=' absolute top-[470px] '/>
         </div>
      );
 }
