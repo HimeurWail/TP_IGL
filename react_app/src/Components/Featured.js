@@ -9,7 +9,6 @@ import useFetch from './Functions/UseFetch';
 import Title from './Style/Title';
 import { Link } from "react-router-dom";
 
-import circle from '../images/pics/circle.png' ; 
 
 
 const Featured = () => {
@@ -24,9 +23,9 @@ const Featured = () => {
     }, ['http://127.0.0.1:8000/api/recentannounces/']);
 
     return (
-        <div id="Featured" className=" w-full h-screen pt-[10%] relative " >
+        <div id="Featured" className=" w-full h-screen pt-[90px] relative lg:mt-[50px] mt-[650px] " >
             <Title first={" Featured "}></Title>
-            <img src={circle} alt="" className=' absolute left-[52%] top-28 ' />
+          
           <div className="flex items-center mx-auto md:space-x-8 sm:mt-[40px] md:mt-[40px] lg:space-x-6 lg:items-center lg:justify-center ">
           
             <div
@@ -97,4 +96,3 @@ const Featured = () => {
     
  
 export default Featured;
-
