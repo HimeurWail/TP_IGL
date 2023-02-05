@@ -13,7 +13,6 @@ import wilaya from "../images/icons/wilaya.png" ;
 import position from "../images/icons/positionicon.png" ; 
 import LeftArrow from "../images/icons/leftt.png" ; 
 import RightArrow from "../images/icons/rightt.png" ; 
-
 import Footer from "../Components/Footer";
 
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
@@ -60,17 +59,15 @@ const SingleAnnonce = (props) => {
 
 
     return ( 
-        <div  className="bg-beige pt-[3%] ">
+        <div  className="bg-beige pt-[3%] w-full ">
          
          <div className="flex flex-col px-[5%]">
-         <div className="flex flex-row justify  ">
-               
-            </div>
-            <Title first={"about this listing "}></Title>
-
-            <div className=" picdiv flex sm:flex-col lg:flex-row  items-center  space-x-32 mx-auto my-[2%] ">
+         
+            <Title  first={"about this listing"}></Title>
+                                {/* swiper div */}
+            <div className=" picdiv pt-4 flex flex-col space-y-3 lg:flex-row  items-center  lg:space-x-32 lg:mx-auto lg:my-[2%] ">
               
-                <div className="flex flex-col px-auto border-lightgris rounded-lg border-2 p-2 h-[320px] w-[460px] ">
+                <div className="flex flex-col px-auto border-lightgris rounded-lg border-2 p-2 h-[50%] lg:h-[320px] w-[50%] lg:w-[460px] ">
                      
                      <div className="flex flex-row items-center justify-center w-[100%]">
                    {/*  <div
@@ -98,7 +95,7 @@ const SingleAnnonce = (props) => {
                                       
                        ref={swiperRef}>
                         {imgsUrls.map((imgUrl) => {
-                          return <SwiperSlide> <img className="h-[310px] w-[450px] py-3" src={`http://127.0.0.1:8000${imgUrl}`} alt="" /></SwiperSlide>
+                          return <SwiperSlide> <img className="w-[220px] h-[110px] lg:h-[310px] lg:w-[450px] py-3" src={`http://127.0.0.1:8000${imgUrl}`} alt="" /></SwiperSlide>
                         })}
                       </Swiper>
                       <div ref={navigationPrevRef} />
@@ -116,16 +113,16 @@ const SingleAnnonce = (props) => {
  
                </div>
 
-                <div className="flex flex-col w-[460px] h-[410px] ">
-                    <div className="bg-black rounded-t-lg  text-white h-[10%] text-center w-[100%] ">
-                     <p className=" text-center" > Price : {Ai.price} DA  </p>
+                <div className="flex flex-col w-[90%] lg:w-[460px] h-[200px] lg:h-[410px] ">
+                    <div className="bg-black rounded-t-lg  text-white h-[90%] lg:h-[10%] text-center lg:w-[100%] ">
+                     <p className=" text-center " > Price : {Ai.price} DA  </p>
                     </div>
 
-                    <div className=" flex flex-col bg-white border-lightgris border-2 shadow-lg rounded-b-lg h-[90%] w-[100%]">
+                    <div className=" flex flex-col bg-white border-lightgris border-2 shadow-lg rounded-b-lg lg:h-[90%] lg:w-[100%]">
                       <div className=" h-[85%] w-[100%] border-b-2 border-lightgris">
                           <div className=" h-[40%] flex flex-col justify-center items-center mx-auto  ">
                             <div className= "pt-[2%] text-center  w-[90%] h-[30%] hover:underline  ">
-                                    <p> Information About the seller </p>
+                                    <p > Information About the seller </p>
                             </div>
                             <div className= " shadow-xl w-[90%] h-[70%] border-lightgris border-2 rounded-lg ">
                                     
@@ -157,7 +154,7 @@ const SingleAnnonce = (props) => {
                           </div>
                       </div>
 
-                      <div className={`flex flex-col justify-center items-center ${((!props.auth)||(Ai.userId === props.userName)) && "hidden"}`}>
+                      <div className={`flex flex-col justify-center items-center  hidden lg:visible ${((!props.auth)||(Ai.userId === props.userName)) && "hidden"}`}>
                            <button onClick={AddToFav} className=" bg-white border-lightgris  border-2 px-[25px] py-[5px] mt-[10px] rounded-[5px] hover:bg-black hover:text-white "> 
                                    <div className="flex flex-rox items-center justify-between">
                                             <img className="h-[20px]" src={heart} alt="" />
@@ -172,41 +169,45 @@ const SingleAnnonce = (props) => {
             </div>
 
 
-            <div className=" flex flex-col  px-[10%] py-[2%]">
+            <div className=" flex flex-col lg:justify-center  px-[10%] pt-[50%] pb-10 lg:py-[2%]">
               <h1 className="pl-2 text-lg font-bold"> {Ai.title} </h1>
-              <div className="flex flex-row items-end sm:flex-col">
-              <img src={position}className="pr-4" alt="" />
-                <h1> {Ai.adress} - {Ai.commune} - {Ai.willaya} </h1>
+              <div className="flex flex-row items-end ">
+                <img src={position}className="pr-1 lg:pr-4 w-[25px] lg:w-[40px] " alt="" />
+                <h1 className="text-xs lg:text-lg "> {Ai.adress} - {Ai.commune} - {Ai.willaya} </h1>
                
             </div>
                
               </div>
              
-            <div className=" typezge3 flex flex-row justify-center items-center h-[50%] mb-[10%] ">
+            <div className=" typezge3 flex flex-col lg:flex-row justify-center items-center h-[50%] mb-[10%] ">
              
-                <div className="flex flex-col justify-center items-center 
-                h-[220px] w-[20%] border-2 border-lightgris  ">
-                    <img src={typee} alt="" className="mb-[20px]" />
+                <div className="flex space-x-5 lg:space-x-0 lg:flex-col justify-center items-center lg:h-[220px] lg:w-[20%] w-[80%] border-2 border-lightgris  ">
+                    <img src={typee} alt="" className="w-[30px] lg:w-[45px] lg:mb-[20px] h-10 " />
                     <p className="text-opacity-50 text-gris"> type </p>
                     <p> {Ai.type} </p>
 
                 </div>
-                <div className="flex flex-col justify-center items-center 
-                h-[220px] w-[20%] border-2 border-lightgris ">
-                    <img src={category} alt="" className="mb-[20px]"/>
+
+                <div className="flex space-x-5 lg:space-x-0 lg:flex-col justify-center items-center 
+                lg:h-[220px] lg:w-[20%] w-[80%] border-2 border-lightgris ">
+                    <img src={category} alt="" className="w-[30px]  lg:w-[45px] lg:mb-[20px] h-10 "/>
                     <p className="text-opacity-50 text-gris"> category </p>
                     <p> {Ai.category}  </p>
 
                 </div>
-                <div className="flex flex-col justify-center items-center 
-                h-[220px] w-[20%] border-2 border-lightgris ">
-                    <img src={surface} alt="" className="mb-[20px]" />
+
+
+                <div className="flex space-x-5 lg:space-x-0 lg:flex-col justify-center items-center 
+                lg:h-[220px] lg:w-[20%] w-[80%] border-2 border-lightgris ">
+                    <img src={surface} alt="" className="w-[30px]  lg:w-[45px] lg:mb-[20px] h-10" />
                     <p className="text-opacity-50 text-gris" > surface </p>
                     <p> {Ai.surface} m² </p>
                  </div>
-                 <div className="flex flex-col justify-center items-center 
-                 h-[220px] w-[20%] border-2 border-lightgris ">
-                    <img src={wilaya} alt=""  />
+
+
+                 <div className="flex space-x-5 lg:space-x-0  lg:flex-col justify-center items-center 
+                 lg:h-[220px] lg:w-[20%] w-[80%] border-2 border-lightgris ">
+                    <img src={wilaya} className="h-[35px]  lg:w-[45px] lg:mb-[20px] lg:h-10" alt=""  />
                     <p className="text-opacity-50 text-gris"> Wilaya  </p>
                     <p> {Ai.willaya}  </p>
                  </div>
@@ -217,13 +218,13 @@ const SingleAnnonce = (props) => {
                     location 
             </div>
 
-            <div className=" Description w-full h-screen  flex flex-col  pb-[150px] ">
-                   <h1 className="text-[30px] font-bold ml-[60px] p-5"> Description :  </h1>
-                   <div  className=" shadow-xl w-[90%] h-[350px] border-lightgris border-2 rounded-lg mx-auto">
-                           <p className="m-[4%] underline ">
+            <div className=" Description lg:w-full lg:h-screen  flex flex-col  lg:pb-[150px] pb-12 ">
+                   <h1 className=" text-[18px] lg:text-[30px] font-bold lg:ml-[60px] p-5"> Description :  </h1>
+                   <div  className=" shadow-xl w-[90%] h-[100px] lg:h-[350px] border-lightgris border-2 rounded-lg mx-auto">
+                           <p className="m-[4%] underline text-[9px] lg:text-[20px] ">
                             Offer created in :  { Ai.createdAt}
                            </p>
-                            <p className="m-[4%]">
+                            <p className="m-[4%] text-[10px] lg:text-[20px] ">
                                     {Ai.description } 
                             </p>
                    </div>
