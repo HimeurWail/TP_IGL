@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Title from "../Components/Style/Title";
 import messageicon from "../images/icons/messageicon.png" ; 
 import checked from "../images/icons/checked.png"
@@ -6,16 +6,15 @@ import checked from "../images/icons/checked.png"
 
 
 
-const MessagesPage = () => {
+const MessagesPage = (props) => {
 
-    const [Msg , setMsg ] = useState('') ;
+    const [listMsgs , setMsgs ] = useState([]) ;
 
-    const listMsgs=
-    [
-        "msg1" , 
-        "msg2 " , 
-        " msg3 "
-    ]
+    useEffect(() => {
+      fetch("http://127.0.0.1:8000/api/getmessages/?user="+props.userName).then((res) => {
+        return res.json();
+      }).then((data) => {setMsgs(data);}).catch((err) => console.log(err));
+    }, [])
 
     
 
@@ -35,13 +34,14 @@ const MessagesPage = () => {
                     <div className=" flex flex-col  mx-auto mb-[1px] border-lightgris border-2 rounded-xl w-[60%] p-6">
                    <div className="flex flex-row space-x-4">
                    <img src={checked} className=" lg:w-[25px]" alt="" />
-                   <p className="text-lg font-bold "> Message from : { ' email  '} </p>
+                   <p className="text-lg font-bold "> Message from : {Msg.senderEmail} </p>
                     </div>    
                   
-                   <p className="text-md  font-medium  text-sm "> sent on : {'ello '} </p>
+                   <p className="text-md  font-semibold text-gris  text-sm "> Announce title : {Msg.title} </p>
+                   <p className="text-md  font-medium  text-sm "> sent on : {Msg.createdAt} </p>
                    <div className="bg-lightgris w-[100%] h-1 my-2"></div>
                  <p>
-                    { 'messsage gd jd babat rassi' }
+                    { Msg.message }
                  </p>
                 
                 

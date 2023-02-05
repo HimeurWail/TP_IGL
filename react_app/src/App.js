@@ -58,7 +58,7 @@ function App() {
               <Route path="/page:id" element={<SingleAnnonce auth={auth} userName={userName}/>}/>
               <Route path="/Research/:id" element={<SingleAnnonce auth={auth} userName={userName}/>}/> 
               <Route path="/Plainlist" element={<PlainList/>}/> 
-              <Route path="/MsgPage" element={<MessagesPage/>}></Route>
+              <Route path="/MsgPage" element={<MessagesPage userName={userName}/>}></Route>
               <Route path="/Add" element={<AnnonceFormPage auth={auth} userName={userName} userPic={userPic} name={name}/>}/>
 
           </Routes>
