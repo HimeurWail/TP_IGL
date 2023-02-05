@@ -68,7 +68,7 @@ const SingleAnnonce = (props) => {
             </div>
             <Title first={"about this listing "}></Title>
 
-            <div className=" picdiv flex flex-row items-center  space-x-32 mx-auto my-[2%] ">
+            <div className=" picdiv flex sm:flex-col lg:flex-row  items-center  space-x-32 mx-auto my-[2%] ">
               
                 <div className="flex flex-col px-auto border-lightgris rounded-lg border-2 p-2 h-[320px] w-[460px] ">
                      
@@ -171,9 +171,10 @@ const SingleAnnonce = (props) => {
 
             </div>
 
+
             <div className=" flex flex-col  px-[10%] py-[2%]">
               <h1 className="pl-2 text-lg font-bold"> {Ai.title} </h1>
-              <div className="flex flex-row items-end ">
+              <div className="flex flex-row items-end sm:flex-col">
               <img src={position}className="pr-4" alt="" />
                 <h1> {Ai.adress} - {Ai.commune} - {Ai.willaya} </h1>
                

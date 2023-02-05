@@ -10,6 +10,7 @@ import AnnonceFormPage from "./pages/AnnonceFormPage";
 import GetImgs from "./pages/GetImgs";
 
 import PlainList from "./pages/PlainListAnn";
+import MessagesPage from "./pages/MessagesPage";
 
 
 
@@ -57,6 +58,7 @@ function App() {
               <Route path="/page:id" element={<SingleAnnonce auth={auth} userName={userName}/>}/>
               <Route path="/Research/:id" element={<SingleAnnonce auth={auth} userName={userName}/>}/> 
               <Route path="/Plainlist" element={<PlainList/>}/> 
+              <Route path="/MsgPage" element={<MessagesPage userName={userName}/>}></Route>
               <Route path="/Add" element={<AnnonceFormPage auth={auth} userName={userName} userPic={userPic} name={name}/>}/>
 
           </Routes>
