@@ -135,7 +135,7 @@ const types =
      return ( 
         
       
-         <div className=" flex lg:flex-row flex-col items-start m-auto   justify-between justify-center ">
+         <div className=" flex lg:flex-row flex-col items-start m-auto  justify-center ">
                         <div className=" flex flex-col   p-[30px] lg:border-r-2 lg:w-[30%] w-[90%] border-lightgris ">
                                  <div className=" flex flex-col space-y-3 lg:space-y-[3px] " >
                             <h1 className="text-center text-ahmar sm:py-4 lg:py-1 text-xl font-bold"> Filtres </h1>
