@@ -40,8 +40,8 @@ const Navbar = (props) => {
 
     
     return ( 
-        <header className='sticky z-10 top-0'>
-			<img className='w-[100px] h-[100px]' src={logo} alt="" />
+        <header className='sticky z-10 top-0 '>
+			<img className='lg:w-[100px] w-[70px] h-[70px] lg:h-[100px] ml-0' src={logo} alt="" />
 			<nav ref={navRef} className=' Btns px-5 mx-[10px] ml-auto mr-auto  '>
             <a className=' relative p-[10px] ml-[20px] ' href="/#Home"> Home </a> 
               <a className=' relative p-[10px] ml-[20px] ' href="/#Find"> Find </a>
@@ -68,11 +68,11 @@ const Navbar = (props) => {
                          />
                  </div>
                  <div className={`${!authentificated && 'hidden'}`}>
-                 <div className=' flex flex-row space-x-5'>
+                 <div className=' flex flex-row space-x-5 '>
                 <Link className=''  to="/Profile"> 
-                <img src={profileicon} className="w-[40px] h-[40px] hover:scale-90 " />
+                <img src={profileicon} className="lg:w-[40px] w-[30px] h-[30px] lg:h-[40px] hover:scale-90 " />
                 </Link>  
-                <img src={notif} className="w-[40px] h-[40px] hover:scale-90" />
+                <img src={notif} className="lg:w-[40px] w-[30px] h-[30px] lg:h-[40px] hover:scale-90" />
                 </div>
                  </div>
 			<button className="nav-btn" onClick={showNavbar}>
