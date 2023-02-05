@@ -3,12 +3,11 @@ import { Link } from "react-router-dom";
 
 const AnnMap = ({Ais}) => {
     return ( 
-        <div className=" flex flex-wrap justify-center p-[10px]">  
+        <div className="w-[90%] grid grid-cols-2 lg:grid-cols-3 gap-12">  
         {Ais.map((Ai) =>
-        
-        (<div className="  flex flex-row w-1/2 lg:w-1/3 mx-auto mb-[30px] " key={Ai.id}>
+        (<div className=" mb-[30px] " key={Ai.id}>
             <Link to={`/Research/${Ai.announceCode}`}>
-                <div className=" w-12">
+                <div className=" w-10">
                 <AnnounceCard Ai={Ai}></AnnounceCard > 
                 </div>
                 
