@@ -27,7 +27,7 @@ class AnnounceImgSerializer(serializers.ModelSerializer):
         model = AnnounceImg
         fields = ('announceCode', 'imgFile')
 
-class CreatFormulaireSerializer(serializers.ModelSerializer):
+class FormulaireSerializer(serializers.ModelSerializer):
     class Meta:
         model = Formulaire
-        fields = ('announceCode', 'senderEmail', 'message')
+        fields = ('announceCode', 'senderEmail', 'receiverEmail', 'message', 'createdAt')

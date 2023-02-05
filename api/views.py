@@ -1,7 +1,7 @@
 from rest_framework import status, generics
 from .models import Announce, AnnounceImg, Formulaire
 from django.http import HttpResponse
-from .serialisers import AnnounceImgSerializer, AnnounceSerializer, CreateAnnounceSerializer, AnnounceCardSerializer
+from .serialisers import AnnounceImgSerializer, AnnounceSerializer, CreateAnnounceSerializer, AnnounceCardSerializer, FormulaireSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
@@ -154,3 +154,20 @@ class SendMessage(APIView):
             return Response({'message': 'message well saved'}, status=status.HTTP_200_OK)
         
         return Response({'message': 'message not saved'}, status=status.HTTP_400_BAD_REQUEST)
+
+class GetUserMessages(APIView):
+    serializer_class = FormulaireSerializer
+    lookup_url_kwarg = 'user'
+
+    def get(self, request, *args, **kwargs):
+        userName = request.GET.get(self.lookup_url_kwarg)
+        data = Formulaire.objects.filter(receiverEmail=userName)
+        if len(data)>0:
+            messages = []
+            for msg in data:
+                elmnt = self.serializer_class(msg).data
+                listing = Announce.objects.filter(announceCode=elmnt.get('announceCode'))
+                elmnt.update({'title':AnnounceSerializer(listing[0]).data.get('title')})
+                messages.append(elmnt)
+            return Response(messages, status=status.HTTP_200_OK)
+        return HttpResponse({'msg': 'aucune message trouvée'}, status=status.HTTP_411_LENGTH_REQUIRED)
