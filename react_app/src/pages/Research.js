@@ -135,11 +135,11 @@ const types =
      return ( 
         
       
-         <div className=" flex flex-row items-start m-auto justify-between ">
-                        <div className=" flex flex-col p-[30px] h-screen border-r-2 w-[30%] border-lightgris ">
-                                 <div className=" flex flex-col space-y-[3px]" >
-                            <h1 className="text-center text-ahmar text-xl font-bold"> Filtres </h1>
-                                 <div className="flex flex-col ">
+         <div className=" flex lg:flex-row flex-col items-start m-auto   justify-between justify-center ">
+                        <div className=" flex flex-col   p-[30px] lg:border-r-2 lg:w-[30%] w-[90%] border-lightgris ">
+                                 <div className=" flex flex-col space-y-3 lg:space-y-[3px] " >
+                            <h1 className="text-center text-ahmar sm:py-4 lg:py-1 text-xl font-bold"> Filtres </h1>
+                                 <div className="flex flex-row justify-between  lg:flex-col  ">
                                  <label>Type</label>
                                     <input 
                                     list="types"
@@ -147,7 +147,7 @@ const types =
                                     required 
                                     placeholder='type'
                                     value={aiType}
-                                    className="bg-lightgreen w-[90%] h-[40px] mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg p-3"
+                                    className=" w-[60%] sm:h-[12px] lg:w-[90%] lg:h-[40px] sm:mr-0 lg:mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg lg:p-3"
                                     onChange ={(e)=> setType(e.target.value)}  
                                     />
                                    
@@ -158,7 +158,7 @@ const types =
                                       </datalist>
                                     </div>
 
-                                    <div className="flex flex-col">
+                                    <div className="flex flex-row justify-between lg:flex-col ">
                                     <label> Wilaya </label>
                                     <input
                                      required 
@@ -166,7 +166,7 @@ const types =
                                      name='willaya'
                                      value={aiWilaya}
                                      placeholder='Willaya'
-                                     className="bg-lightgreen w-[90%] h-[40px] mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg p-3"
+                                     className="w-[60%] sm:h-[12px] sm:p-1  lg:w-[90%] lg:h-[40px] lg:mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg lg:p-3"
                                      onChange ={(e)=> setWilaya(e.target.value)} >
                                      </input>
                                       <datalist id='wilayas'>
@@ -180,81 +180,81 @@ const types =
                                     </div> 
                                    
 
-                                    <div className="flex flex-col">
+                                    <div className="flex flex-row justify-between lg:flex-col ">
                                     <label> Commune </label>
                                       <input
                                             type="text"
                                             required 
                                             placeholder='commune'
                                             value={aiCommune}
-                                            className="bg-lightgreen w-[90%] h-[40px] mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg p-3"
+                                            className="w-[60%] sm:h-[12px] sm:p-1  lg:w-[90%] lg:h-[40px] lg:mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg lg:p-3"
                                             onChange ={(e)=> setCommune(e.target.value)} >
                                          
                                         </input>
                                     </div> 
 
                                     <div className="flex flex-col space-y-2">
-                                    <label> Period </label>
-                                    <div className="flex flex-row items-center">
+                                    <label className="text-center lg:text-left underline lg:no-underline "> Period </label>
+                                    <div className="flex flex-row items-center justify-between ">
                                    
                                     <input
                                             type="date"
                                             required 
                                             value={yearmin}
-                                            className="bg-lightgreen w-[50%] h-[40px] mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg p-3 "
+                                            className=" lg:order-1 order-2 w-[40%] sm:h-[12px] sm:p-1  lg:w-[55%] lg:h-[40px] lg:mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg lg:p-3"
                                             onChange ={(e)=> setYearmin(e.target.value)} >
                                          
                                         </input>
-                                        <label> start date  </label>
+                                        <label className="lg:order-2 order-1 "> start date  </label>
                                     </div>
 
 
-                                     <div className="flex flex-row items-center">
+                                     <div className="flex flex-row items-center justify-between">
                                      
                                      <input
                                             type="date"
                                             required 
                                             value={yearmax}
-                                            className="bg-lightgreen w-[50%] h-[40px] mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg p-3 "
+                                            className="lg:order-1 order-2 w-[40%] sm:h-[12px] sm:p-1  lg:w-[55%] lg:h-[40px] lg:mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg lg:p-3"
                                             onChange ={(e)=> {setYearMax(e.target.value); alert(yearmax)}} >
                                          
                                         </input>
-                                        <label> ending date  </label>
+                                        <label className="lg:order-2 order-1 "> ending date  </label>
                                     </div> 
                                        
                                     </div> 
                                 
 
-                                    <div className="flex flex-col">
+                                    <div className="flex flex-row justify-between lg:flex-col">
                                                 <label> Minimum Price </label>
                                                 <input 
                                                 type="number"
                                                 required 
                                                 value={pricemin}
-                                                className="bg-lightgreen w-[90%] h-[40px] mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg p-3"
+                                                className="w-[50%] sm:h-[12px] sm:p-1  lg:w-[90%] lg:h-[40px] lg:mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg lg:p-3"
                                                 onChange ={(e)=> setPricemin(e.target.value)}  
                                                 />
                                     </div>  
                             
-                                    <div className="flex flex-col"> 
+                                    <div className="flex flex-row justify-between lg:flex-col"> 
                                                 <label> Maximum Price  </label>
                                                 <input 
                                                 type="number"
                                                 required 
                                                 value={pricemax}
-                                                className="bg-lightgreen w-[90%] h-[40px] mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg p-3 "
+                                                className="w-[50%] sm:h-[12px] sm:p-1  lg:w-[90%] lg:h-[40px] lg:mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg lg:p-3"
                                                 onChange ={(e)=> setPricemax(e.target.value)}  
                                                 />
                                     </div>
 
                                  </div>
                             <div className="bg-white relative mt-[20px] mx-auto">
-                            <button className="bg-white btn1 border-ahmar border-2 px-[25px]  rounded-[10px]  w-32 " onClick={handleFiltre}>
+                            <button className="bg-white btn1 border-ahmar border-2 px-[7px] lg:px-[25px] rounded-[10px] w-24 lg:w-32 " onClick={handleFiltre}>
                                         <div className="flex flex-rox items-center justify-between">
-                                            <img className="h-[30px]" src={filtreicon} alt="" />
-                                            <p className="pl-[10px]"> Filtre </p>
+                                            <img className=" h-[25px] lg:h-[30px]" src={filtreicon} alt="" />
+                                            <p className="pl-[5px] lg:pl-[10px]"> Filtre </p>
                                         </div>   
-                                    </button> 
+                             </button> 
                             </div>
                                    
                                 
@@ -262,19 +262,19 @@ const types =
 
               <div className=" flex flex-col justify-center items-center mx-auto ">
                         
-                            <div className=" flex flex-row justify-center items-center m-4 w-[70%] pt-[10px]">
+                            <div className=" flex flex-row justify-center items-center lg:m-4 sm:w-[350px] lg:w-[70%] lg:pt-[10px]">
                                     
-                                            <input 
+                                     <input 
                                         type="text"
                                         required 
                                         value={research}
                                         placeholder='Search' 
-                                        className="bg-lightgreen w-[700px] h-[40px] px-4 rounded-[10px] rounded-tr-none rounded-br-none border-lightgris border-2 shadow-lightgris shadow-lg"
+                                        className="w-[80%] lg:w-[700px] h-[40px] px-4 rounded-[10px] rounded-tr-none rounded-br-none border-lightgris border-2 shadow-lightgris shadow-lg"
                                         onChange ={(e)=> {setResearch(e.target.value); console.log(research);}}  
-                                        />
+                                    />
                                         <button className="bg-ahmar px-[5px] rounded-tl-none rounded-bl-none rounded-[11px] hover:bg-gris  shadow-lightgris shadow-lg " onClick={handleSearch}>
                                         <div className="flex flex-rox items-center justify-between">
-                                            <img className="h-[40px]" src={search} alt="" />
+                                            <img className="h-[40px] " src={search} alt="" />
                                         </div>
                                         
                                         </button>
@@ -283,14 +283,14 @@ const types =
   
                
                              
-            { error ? <div> there's an error : {error} </div> : <></>}
-            { isPending ? <div> Loading ... </div> : <></>}
-            { Ais ? <AnnMap Ais={filtredAis}></AnnMap> : <></>}
+                  { error ? <div> there's an error : {error} </div> : <></>}
+                  { isPending ? <div> Loading ... </div> : <></>}
+                  { Ais ? <AnnMap Ais={filtredAis}></AnnMap> : <></>}
             
 
-               </div>
+                </div>
         
-         </div>
+     </div>
              
       
          
