@@ -135,19 +135,11 @@ const types =
      return ( 
         
       
-<<<<<<< HEAD
-         <div className=" flex lg:flex-row flex-col items-start m-auto   justify-between lg:justify-center ">
-                        <div className=" flex flex-col  p-[30px] border-r-2 lg:w-[30%] w-[80%] border-lightgris ">
-                                 <div className=" flex flex-col space-y-[3px]" >
-                            <h1 className="text-center text-ahmar text-xl font-bold"> Filtres </h1>
-                                 <div className="flex flex-col ">
-=======
          <div className=" flex lg:flex-row flex-col items-start m-auto  justify-center ">
                         <div className=" flex flex-col   p-[30px] lg:border-r-2 lg:w-[30%] w-[90%] border-lightgris ">
                                  <div className=" flex flex-col space-y-3 lg:space-y-[3px] " >
                             <h1 className="text-center text-ahmar sm:py-4 lg:py-1 text-xl font-bold"> Filtres </h1>
                                  <div className="flex flex-row justify-between  lg:flex-col  ">
->>>>>>> Announceresponsive
                                  <label>Type</label>
                                     <input 
                                     list="types"
@@ -270,11 +262,7 @@ const types =
 
               <div className=" flex flex-col justify-center items-center mx-auto ">
                         
-<<<<<<< HEAD
-                            <div className=" flex flex-row justify-center items-center m-4 w-[350px] lg:w-[70%] pt-[10px]">
-=======
                             <div className=" flex flex-row justify-center items-center lg:m-4 sm:w-[350px] lg:w-[70%] lg:pt-[10px]">
->>>>>>> Announceresponsive
                                     
                                      <input 
                                         type="text"
