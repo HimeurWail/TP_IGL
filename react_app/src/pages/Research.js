@@ -135,8 +135,8 @@ const types =
      return ( 
         
       
-         <div className=" flex flex-row items-start m-auto justify-between ">
-                        <div className=" flex flex-col p-[30px] h-screen border-r-2 w-[30%] border-lightgris ">
+         <div className=" flex lg:flex-row flex-col items-start m-auto   justify-between lg:justify-center ">
+                        <div className=" flex flex-col  p-[30px] border-r-2 lg:w-[30%] w-[80%] border-lightgris ">
                                  <div className=" flex flex-col space-y-[3px]" >
                             <h1 className="text-center text-ahmar text-xl font-bold"> Filtres </h1>
                                  <div className="flex flex-col ">
@@ -262,19 +262,19 @@ const types =
 
               <div className=" flex flex-col justify-center items-center mx-auto ">
                         
-                            <div className=" flex flex-row justify-center items-center m-4 w-[70%] pt-[10px]">
+                            <div className=" flex flex-row justify-center items-center m-4 w-[350px] lg:w-[70%] pt-[10px]">
                                     
-                                            <input 
+                                     <input 
                                         type="text"
                                         required 
                                         value={research}
                                         placeholder='Search' 
                                         className="bg-lightgreen w-[700px] h-[40px] px-4 rounded-[10px] rounded-tr-none rounded-br-none border-lightgris border-2 shadow-lightgris shadow-lg"
                                         onChange ={(e)=> {setResearch(e.target.value); console.log(research);}}  
-                                        />
+                                    />
                                         <button className="bg-ahmar px-[5px] rounded-tl-none rounded-bl-none rounded-[11px] hover:bg-gris  shadow-lightgris shadow-lg " onClick={handleSearch}>
                                         <div className="flex flex-rox items-center justify-between">
-                                            <img className="h-[40px]" src={search} alt="" />
+                                            <img className="h-[40px] " src={search} alt="" />
                                         </div>
                                         
                                         </button>
@@ -283,14 +283,14 @@ const types =
   
                
                              
-            { error ? <div> there's an error : {error} </div> : <></>}
-            { isPending ? <div> Loading ... </div> : <></>}
-            { Ais ? <AnnMap Ais={filtredAis}></AnnMap> : <></>}
+                  { error ? <div> there's an error : {error} </div> : <></>}
+                  { isPending ? <div> Loading ... </div> : <></>}
+                  { Ais ? <AnnMap Ais={filtredAis}></AnnMap> : <></>}
             
 
-               </div>
+                </div>
         
-         </div>
+     </div>
              
       
          
