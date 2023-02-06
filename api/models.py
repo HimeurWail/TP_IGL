@@ -19,7 +19,7 @@ class Announce(models.Model):
     category = models.CharField(max_length=40, null=False)
     type = models.CharField(max_length=40, null=False)
     title = models.CharField(max_length=256, null=False)
-    description = models.CharField(max_length=1000, null=False)
+    description = models.CharField(max_length=1000)
     price = models.IntegerField(null=False)
     surface = models.IntegerField(null=False)
     willaya = models.CharField(max_length=40, null=False)

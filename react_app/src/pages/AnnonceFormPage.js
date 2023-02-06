@@ -150,7 +150,7 @@ function AnnonceFormPage(props) {
           </div>  
           <div className='flex flex-col gap-5 md:flex-row  lg:flex-row md:justify-between lg:justify-between'>
             <div className='flex flex-col gap-7'>
-              <textarea className='md:w-[340px] lg:w-[500px] resize-none p-2 h-[150px] border-[1px] border-[rgba(0, 0, 0, 0.3)] rounded-sm' name='contact' placeholder='Drop your contacts' value={inputs.contact || ""} onChange={handleChange}></textarea>
+              <textarea required className='md:w-[340px] lg:w-[500px] resize-none p-2 h-[150px] border-[1px] border-[rgba(0, 0, 0, 0.3)] rounded-sm' name='contact' placeholder='Drop your contacts' value={inputs.contact || ""} onChange={handleChange}></textarea>
             </div>
             
             <div className="App text-sm">

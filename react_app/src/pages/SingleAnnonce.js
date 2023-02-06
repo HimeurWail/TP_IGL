@@ -21,6 +21,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
+import {Snackbar} from "@material-ui/core"
+
 
 const SingleAnnonce = (props) => {
    const {id}= useParams() ; 
@@ -30,7 +32,9 @@ const SingleAnnonce = (props) => {
    const [message , setMessage] = useState('') ; 
 
    const [Ai,setAi] = useState({});
-   const [imgsUrls, setImgs] = useState([])
+   const [imgsUrls, setImgs] = useState([]);
+   const [open, setOpen] = useState(false);
+   const [msg, setMsg] = useState('');
 
    const AddToFav = ()=>
    {
@@ -50,7 +54,8 @@ const SingleAnnonce = (props) => {
     };
      fetch("http://127.0.0.1:8000/api/sendmessage/", requestOptions)
     .then((res) =>{return res.json();}).then((msg) => console.log(msg))
-    .catch((err) => console.log(err));
+    .catch((err) => {console.log(err); setMsg("Error, message unsaved");});
+    setOpen(true);
    }  
    useEffect(() => {
     fetch(`http://127.0.0.1:8000/api/announce/?code=`+id).then((res) => {return res.json();}).then((data)=> {setAi(data)} ).catch((err) => console.log(err))
@@ -150,11 +155,12 @@ const SingleAnnonce = (props) => {
                              hover:bg-white hover:border-ahmar hover:border-2 hover:text-ahmar "> 
                               Send
                             </button>
+                            <Snackbar open={open} onClose={() => setOpen(false)} message={(msg === 'Error')?msg:"Message Well Saved"} autoHideDuration={3000}/>
 
                           </div>
                       </div>
 
-                      <div className={`flex flex-col justify-center items-center  hidden lg:visible ${((!props.auth)||(Ai.userId === props.userName)) && "hidden"}`}>
+                      <div className={` flex-col justify-center items-center  hidden lg:visible ${((!props.auth)||(Ai.userId === props.userName)) && "hidden"}`}>
                            <button onClick={AddToFav} className=" bg-white border-lightgris  border-2 px-[25px] py-[5px] mt-[10px] rounded-[5px] hover:bg-black hover:text-white "> 
                                    <div className="flex flex-rox items-center justify-between">
                                             <img className="h-[20px]" src={heart} alt="" />
