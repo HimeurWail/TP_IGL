@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 function Find() {
   return (
-    <div align="center" id="Find" className="h-screen w-full pt-[5%] mt-0 lg:mt-[115px]">
+    <div align="center" id="Find" className="h-screen w-full pt-[5%] mt-0 lg:mt-[20px]">
     
     <Title first={"Find a place that fits "}  second={"your comfort"}></Title>
 

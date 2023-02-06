@@ -1,5 +1,3 @@
-
-
 import header_bighouse from '../images/pics/header_bighouse.png' ; 
 import Globe from '../images/pics/globe.png' ; 
 import people from '../images/pics/people.png' ; 
@@ -9,8 +7,8 @@ import whitespace from '../images/pics/whitespace.png' ;
 
 const Header = () => {
     return ( 
-        <div id="Home" className=" flex flex-col justify-center items-center ">
-             <div className="flex h-[230px] lg:h-[650px] lg:flex-row lg:p-[50px] bg-azra9 items-start ">
+        <div id="Home" className=" flex flex-col  justify-center items-center ">
+             <div className="flex h-[230px] lg:h-screen w-full lg:flex-row lg:p-[50px] bg-azra9 items-start ">
                <div className='flex flex-col space-y-4 justify-center pl-[50px] '>
                 {/*we're having a description  here */}
                         <div className=' z-0'>
@@ -35,11 +33,11 @@ const Header = () => {
                             
                 </div>
 
-                <img src={header_bighouse} className="w-[200px]  lg:w-[700px] " alt="" />
+                <img src={header_bighouse} className="w-[200px]  lg:w-[630px] " alt="" />
                 
              </div>  
               
-            <img src={whitespace} alt="" className=' absolute top-[470px] '/>
+            <img src={whitespace} alt="" className=' absolute top-[340px] '/>
         </div>
      );
 }

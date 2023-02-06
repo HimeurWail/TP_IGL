@@ -3,7 +3,7 @@ import fb from "../images/icons/facebook.svg"
 import linkin from "../images/icons/linkedin.svg"
 const Footer = () => {
     return (  
-        <div id="Footer" className="lg:h-[250px] h-44 w-full bg-black flex flex-col justify-center items-center space-y-6" >
+        <div id="Footer" className="lg:h-[250px] h-44 w-full bg-black flex flex-col justify-center items-center mt-[150px] space-y-6" >
                 <div className="w-[90%] lg:w-6/12 lg:mb-[8px] flex flex-col justify-center items-center">
                     <h1 className="text-white text-xs lg:text-[18px] mb-2"> Baity application </h1>
                     <p className="text-white text-xs lg:text-[15px]"> Une application Web permettant à l’utilisateur de publier et de  consulter les annonces immobilières
