@@ -77,7 +77,7 @@ return (
 </div>
 
 
-<div className="lg:w-[64%] ">
+<div className="lg:w-[64%]  px-14 lg:px-0">
   <ProfileSwitchButtons></ProfileSwitchButtons>
   <ListAnnonces userName={userName}></ListAnnonces>
 </div>

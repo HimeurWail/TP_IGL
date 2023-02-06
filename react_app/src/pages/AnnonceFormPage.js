@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import submit from '../images/icons/submit.png'
 import Title from '../Components/Style/Title';
+import {Snackbar} from "@material-ui/core"
 
 const MAX_COUNT = 5;
 
@@ -58,12 +59,15 @@ function AnnonceFormPage(props) {
         .then(res => console.log(res))
         .catch(error => console.log(error))
       }
-    }).catch((err) => console.log(err))
+    }).catch((err) => {console.log(err); setMsg('Error')})
+    setOpen(true);
   }
 
 
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [fileLimit, setFileLimit] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [msg, setMsg] = useState('');
 
 
   const handleUploadFiles = files => {
@@ -103,46 +107,46 @@ function AnnonceFormPage(props) {
           <div className='w-full flex flex-col gap-1'>
             <p className='text-[11px] md:text-sm'>What's the category of the announce ?</p>
             <div className='flex flex-row gap-2 md:gap-4 text-[10px] md:text-xs '>
-              <input type="radio" name='category' value='Sale' id='category1' onChange={handleChange}/>
-              <label for='category1'>Sale</label>
-              <input type="radio" name='category' value='Xchange' id='category2' onChange={handleChange}/>
-              <label for='category2'>Xchange</label>
-              <input type="radio" name='category' value='Location' id='category3' onChange={handleChange}/>
-              <label for='category3'>Location</label>
-              <input type="radio" name='category' value='Location for vacation' id='category4' onChange={handleChange}/>
-              <label for='category4'>Location for Vacation</label>
+              <input  required  type="radio" name='category' value='Sale' id='category1' onChange={handleChange}/>
+              <label   for='category1'>Sale</label>
+              <input  required  type="radio" name='category' value='Xchange' id='category2' onChange={handleChange}/>
+              <label  for='category2'>Xchange</label>
+              <input required  type="radio" name='category' value='Location' id='category3' onChange={handleChange}/>
+              <label   for='category3'>Location</label>
+              <input  required  type="radio" name='category' value='Location for vacation' id='category4' onChange={handleChange}/>
+              <label   for='category4'>Location for Vacation</label>
             </div>
           </div>
           <div className='w-full flex flex-col gap-1'>
             <p className='text-[11px] md:text-sm'>What's the type of the announce ?</p>
             <div className='flex flex-row gap-2 md:gap-4 text-[10px] mdtext-xs '>
-              <input type="radio" name='type' value='Land' id='type1' onChange={handleChange}/>
+              <input required type="radio" name='type' value='Land' id='type1' onChange={handleChange}/>
               <label for='type1'>Land</label>
-              <input type="radio" name='type' value='Farmland' id='type2' onChange={handleChange}/>
+              <input required type="radio" name='type' value='Farmland' id='type2' onChange={handleChange}/>
               <label for='type2'>Farmland</label>
-              <input type="radio" name='type' value='Apartment' id='type3'onChange={handleChange}/>
+              <input required type="radio" name='type' value='Apartment' id='type3'onChange={handleChange}/>
               <label for='type3'>Apartment</label>
-              <input type="radio" name='type' value='House' id='type4' onChange={handleChange}/>
+              <input required type="radio" name='type' value='House' id='type4' onChange={handleChange}/>
               <label for='type4'>House</label>
-              <input type="radio" name='type' value='Bungalow' id='type5' onChange={handleChange}/>
+              <input required type="radio" name='type' value='Bungalow' id='type5' onChange={handleChange}/>
               <label for='type5'>Bungalow</label>
             </div>
           </div>
-          <input className='w-full p-2 border-[1px] border-[rgba(0, 0, 0, 0.3)] rounded-sm' type='text' placeholder='Title' name="title" value={inputs.title || ""} onChange={handleChange}/>
+          <input required className='w-full p-2 border-[1px] border-[rgba(0, 0, 0, 0.3)] rounded-sm' type='text' placeholder='Title' name="title" value={inputs.title || ""} onChange={handleChange}/>
           <textarea className='resize-none p-2 h-[150px] border-[1px] border-[rgba(0, 0, 0, 0.3)] rounded-sm' name='description' placeholder='Description' value={inputs.description || ""} onChange={handleChange}></textarea>
           <div className='w-full flex flex-col gap-5 md:gap-0 md:flex-row lg:flex-row md:justify-between lg:justify-between'>
-            <input type='number' name='price' placeholder='Price' className='md:w-[340px] lg:w-[500px] p-2 border-[1px] border-[rgba(0, 0, 0, 0.3)] rounded-sm' value={inputs.price} onChange={handleChange}/>
-            <input type='number' name='surface' placeholder='Surface' className='md:w-[340px] lg:w-[500px] p-2 border-[1px] border-[rgba(0, 0, 0, 0.3)] rounded-sm' value={inputs.surface || ""} onChange={handleChange}/>
+            <input required type='number' name='price' placeholder='Price' className='md:w-[340px] lg:w-[500px] p-2 border-[1px] border-[rgba(0, 0, 0, 0.3)] rounded-sm' value={inputs.price} onChange={handleChange}/>
+            <input required type='number' name='surface' placeholder='Surface' className='md:w-[340px] lg:w-[500px] p-2 border-[1px] border-[rgba(0, 0, 0, 0.3)] rounded-sm' value={inputs.surface || ""} onChange={handleChange}/>
           </div> 
           <div className='w-full flex flex-col gap-5 md:gap-0 md:flex-row lg:flex-row md:justify-between lg:justify-between'>
-            <input list='wilayas' name='willaya' placeholder='Willaya' className='md:w-[140px] lg:w-[200px] p-2 border-[1px] border-[rgba(0, 0, 0, 0.3)] rounded-sm' value={inputs.willaya || ""} onChange={handleChange}/>
+            <input required list='wilayas' name='willaya' placeholder='Willaya' className='md:w-[140px] lg:w-[200px] p-2 border-[1px] border-[rgba(0, 0, 0, 0.3)] rounded-sm' value={inputs.willaya || ""} onChange={handleChange}/>
             <datalist id='wilayas'>
               {willayas.map((willaya) =>(
                 <option value={willaya.name} className='w-full'/>
               ))}
             </datalist>
-            <input type='text' name='town' placeholder='Town' className='md:w-[140px] lg:w-[200px] p-2 border-[1px] border-[rgba(0, 0, 0, 0.3)] rounded-sm' value={inputs.town || ""} onChange={handleChange}/>
-            <input type='text' name='adresse' placeholder='Adresse' className='md:w-[340px] lg:w-[500px] p-2 border-[1px] border-[rgba(0, 0, 0, 0.3)] rounded-sm' value={inputs.adresse || ""} onChange={handleChange}/>
+            <input required type='text' name='town' placeholder='Town' className='md:w-[140px] lg:w-[200px] p-2 border-[1px] border-[rgba(0, 0, 0, 0.3)] rounded-sm' value={inputs.town || ""} onChange={handleChange}/>
+            <input required type='text' name='adresse' placeholder='Adresse' className='md:w-[340px] lg:w-[500px] p-2 border-[1px] border-[rgba(0, 0, 0, 0.3)] rounded-sm' value={inputs.adresse || ""} onChange={handleChange}/>
           </div>  
           <div className='flex flex-col gap-5 md:flex-row  lg:flex-row md:justify-between lg:justify-between'>
             <div className='flex flex-col gap-7'>
@@ -187,6 +191,7 @@ function AnnonceFormPage(props) {
               <img alt='submit' src={submit} className='w-3 h-3'/>
               <span>Submit</span>
             </label>
+            <Snackbar open={open} onClose={() => setOpen(false)} message={(msg === 'Error')?msg:"Announce Well Saved"} autoHideDuration={3000}/>
           </div>
           
         </form>

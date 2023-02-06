@@ -136,7 +136,7 @@ const types =
         
       
          <div className=" flex lg:flex-row flex-col items-start m-auto  justify-center ">
-                        <div className=" flex flex-col   p-[30px] lg:border-r-2 lg:w-[30%] w-[90%] border-lightgris ">
+                        <div className=" flex flex-col   p-[30px] lg:border-r-2 lg:w-[30%] w-[100%] border-lightgris border-b-2 lg:border-b-0">
                                  <div className=" flex flex-col space-y-3 lg:space-y-[3px] " >
                             <h1 className="text-center text-ahmar sm:py-4 lg:py-1 text-xl font-bold"> Filtres </h1>
                                  <div className="flex flex-row justify-between  lg:flex-col  ">
@@ -147,7 +147,7 @@ const types =
                                     required 
                                     placeholder='type'
                                     value={aiType}
-                                    className=" w-[60%] sm:h-[12px] lg:w-[90%] lg:h-[40px] sm:mr-0 lg:mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg lg:p-3"
+                                    className=" w-[60%] sm:h-[12px] lg:w-[90%] lg:h-[40px] sm:mr-0 lg:mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg px-2 lg:p-3"
                                     onChange ={(e)=> setType(e.target.value)}  
                                     />
                                    
@@ -166,7 +166,7 @@ const types =
                                      name='willaya'
                                      value={aiWilaya}
                                      placeholder='Willaya'
-                                     className="w-[60%] sm:h-[12px] sm:p-1  lg:w-[90%] lg:h-[40px] lg:mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg lg:p-3"
+                                     className="w-[60%] sm:h-[12px] sm:p-1  lg:w-[90%] lg:h-[40px] lg:mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg px-2 lg:p-3"
                                      onChange ={(e)=> setWilaya(e.target.value)} >
                                      </input>
                                       <datalist id='wilayas'>
@@ -187,21 +187,21 @@ const types =
                                             required 
                                             placeholder='commune'
                                             value={aiCommune}
-                                            className="w-[60%] sm:h-[12px] sm:p-1  lg:w-[90%] lg:h-[40px] lg:mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg lg:p-3"
+                                            className="w-[60%] sm:h-[12px] sm:p-1  lg:w-[90%] lg:h-[40px] lg:mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg px-2 lg:p-3"
                                             onChange ={(e)=> setCommune(e.target.value)} >
                                          
                                         </input>
                                     </div> 
 
                                     <div className="flex flex-col space-y-2">
-                                    <label className="text-center lg:text-left underline lg:no-underline "> Period </label>
-                                    <div className="flex flex-row items-center justify-between ">
+                                    <label className="text-center lg:text-left lg:text-black text-white"> Period </label>
+                                    <div className="flex flex-row items-center justify-between">
                                    
                                     <input
                                             type="date"
                                             required 
                                             value={yearmin}
-                                            className=" lg:order-1 order-2 w-[40%] sm:h-[12px] sm:p-1  lg:w-[55%] lg:h-[40px] lg:mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg lg:p-3"
+                                            className=" lg:order-1 order-2 w-[40%] sm:h-[12px] sm:p-1  lg:w-[55%] lg:h-[40px] lg:mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg px-2 lg:p-3"
                                             onChange ={(e)=> setYearmin(e.target.value)} >
                                          
                                         </input>
@@ -215,7 +215,7 @@ const types =
                                             type="date"
                                             required 
                                             value={yearmax}
-                                            className="lg:order-1 order-2 w-[40%] sm:h-[12px] sm:p-1  lg:w-[55%] lg:h-[40px] lg:mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg lg:p-3"
+                                            className="lg:order-1 order-2 w-[40%] sm:h-[12px] sm:p-1  lg:w-[55%] lg:h-[40px] lg:mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg px-2 lg:p-3"
                                             onChange ={(e)=> {setYearMax(e.target.value);}} >
                                          
                                         </input>
@@ -260,9 +260,9 @@ const types =
                                 
                          </div>
 
-              <div className=" flex flex-col justify-center items-center mx-auto ">
+              <div className=" flex flex-col justify-center items-center mx-auto  ">
                         
-                            <div className=" flex flex-row justify-center items-center lg:m-4 sm:w-[350px] lg:w-[70%] lg:pt-[10px]">
+                            <div className=" flex flex-row justify-center items-center lg:m-4 w-[100%] lg:w-[70%] pt-5 mb-12 lg:pt-[10px]">
                                     
                                      <input 
                                         type="text"

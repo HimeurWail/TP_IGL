@@ -1,13 +1,18 @@
 import { useState } from "react";
 import illustration from "../images/pics/illustration.png"
 import Title from "./Style/Title";
+import {Snackbar} from "@material-ui/core"
 
 const ContactUs = () => {
     const[name , setName] = useState('') ; 
     const[email , setEmail] = useState('') ; 
     const[message, setMessage] = useState('') ; 
+    const [open, setOpen] = useState(false);
 
-
+    const handleClick = () =>
+    {
+        setOpen(true);
+    }
     const[isPending , setIsPending]= useState(false)  ; 
  
         const handleSubmit =(e) =>
@@ -48,8 +53,7 @@ const ContactUs = () => {
     
         <label> Full Name : </label>
             <input 
-            type="text"
-            required 
+            type="text" 
             value={name}
             className= " shadow-md "
             onChange ={(e)=> setName(e.target.value)}  
@@ -58,8 +62,7 @@ const ContactUs = () => {
 
     <label > Email : </label>
         <input 
-        type="text"
-        required 
+        type="text" 
         value={email}
         className= " shadow-md "
         onChange ={(e)=> setEmail(e.target.value)}  
@@ -67,21 +70,17 @@ const ContactUs = () => {
 
     <label > Message : </label>
         <input 
-        type="textarea"
-        required 
+        type="textarea" 
         value={message}
         className= " shadow-md h-[100px] "
         onChange ={(e)=> setMessage(e.target.value)}  
         />
 
 
-       {!isPending ? 
        <div className="bg-white relative ">
- <button className="btn1 cursor-pointer bg-ahmar text-white  mt-[10px] p-[8px] border-0 rounded-[8px]"> send your message  </button>
-        
+        <button onClick={handleClick} className="btn1 cursor-pointer bg-ahmar text-white  mt-[10px] p-[8px] border-0 rounded-[8px]"> send your message  </button>
+        <Snackbar open={open} onClose={() => setOpen(false)} message="fonctionalité non disponiple" autoHideDuration={3000}/>
        </div>
-       
-        :<button disabled> loading  ... </button>}
 
         </form>
         </div>

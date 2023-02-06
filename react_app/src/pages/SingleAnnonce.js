@@ -67,7 +67,7 @@ const SingleAnnonce = (props) => {
                                 {/* swiper div */}
             <div className=" picdiv pt-4 flex flex-col space-y-3 lg:flex-row  items-center  lg:space-x-32 lg:mx-auto lg:my-[2%] ">
               
-                <div className="flex flex-col px-auto border-lightgris rounded-lg border-2 p-2 h-[50%] lg:h-[320px] w-[50%] lg:w-[460px] ">
+                <div className="flex flex-col px-auto border-lightgris rounded-lg border-2 p-2 h-[50%] lg:h-[320px] w-[60%] lg:w-[460px] ">
                      
                      <div className="flex flex-row items-center justify-center w-[100%]">
                    {/*  <div

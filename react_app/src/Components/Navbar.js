@@ -41,6 +41,7 @@ const Navbar = (props) => {
     
     return ( 
         <header className='sticky z-10 top-0 '>
+            
             <img className='lg:w-[100px] w-[70px] h-[70px] lg:h-[100px] ml-0' src={logo} alt="" />
             <nav ref={navRef} className=' Btns px-5 mx-[10px] ml-auto mr-auto  '>
             <a className=' relative p-[10px] ml-[20px] ' href="/#Home"> Home </a> 

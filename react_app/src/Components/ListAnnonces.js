@@ -9,10 +9,10 @@ const ListAnnonces = (props) => {
       .catch((err) => {console.log(err);});
     }, [])
     return (
-        <div className=" w-full flex  flex-wrap justify-evenely mt-[30px] m-[10px] p-[10px]">
+        <div className=" w-full grid grid-cols-2 lg:grid-cols-3 mt-[30px] m-[10px] p-[10px]">
 
             {Ais.map((Ai, id) => (
-              <div className="  flex flex-row w-1/2 lg:w-1/3 mx-auto mb-[30px] " key={Ai.id}>
+              <div className=" hover:scale-105" key={Ai.id}>
                 <Link to={`/Research/${Ai.announceCode}`}>
                           <AnnounceCard Ai={Ai}></AnnounceCard > 
                 </Link>

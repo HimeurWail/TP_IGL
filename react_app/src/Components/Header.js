@@ -26,7 +26,7 @@ const Header = () => {
                         <img className='h-[100px] lg:h-[160px]' src={people} alt="" />
                         </div>
 
-                        <div className='flex gap-4 '>
+                        <div className='flex gap-4'>
                             <img className='rotate w-[30px] lg:w-[38px]' src={Globe} alt="globe" />
                             <p className='lg:text-[20px] text-[16px]'> 58 wilayas supported </p>
                         </div>
@@ -37,7 +37,7 @@ const Header = () => {
                 
              </div>  
               
-            <img src={whitespace} alt="" className=' absolute top-[340px] '/>
+            <img src={whitespace} alt="" className=' absolute  top-[150px] lg:top-[300px] '/>
         </div>
      );
 }
