@@ -216,7 +216,7 @@ const types =
                                             required 
                                             value={yearmax}
                                             className="lg:order-1 order-2 w-[40%] sm:h-[12px] sm:p-1  lg:w-[55%] lg:h-[40px] lg:mr-[2px] rounded-[8px] border-lightgris border-2 shadow-lg lg:p-3"
-                                            onChange ={(e)=> {setYearMax(e.target.value); alert(yearmax)}} >
+                                            onChange ={(e)=> {setYearMax(e.target.value);}} >
                                          
                                         </input>
                                         <label className="lg:order-2 order-1 "> ending date  </label>
