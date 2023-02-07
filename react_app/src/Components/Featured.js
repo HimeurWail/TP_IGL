@@ -26,15 +26,15 @@ const Featured = () => {
         <div id="Featured" className=" w-full h-screen pt-[90px] relative lg:mt-[50px] mt-[650px] " >
             <Title first={" Featured "}></Title>
           
-          <div className="flex items-center mx-auto md:space-x-8 sm:mt-[40px] md:mt-[40px] lg:space-x-6 lg:items-center lg:justify-center ">
+          <div className="flex items-center mx-auto md:space-x-8 lg:mt-[40px]  pl-32 lg:pl-2  lg:space-x-6 lg:items-center lg:justify-center ">
           
             <div
               onClick={() => {
                 swiperRef.current.swiper.slidePrev();
               }}
-              className="cursor-pointer  hidden md:flex  w-[200px] md:w-[120px] lg:w-1/6"
+              className="cursor-pointer lg:w-1/6"
             >
-              <img src={LeftArrow} className="w-[50px] h-[50px]" alt="" />
+              <img src={LeftArrow} className="w-0 h-0 lg:w-[50px] lg:h-[50px] " alt="" />
             </div>
    
             <Swiper
@@ -58,19 +58,11 @@ const Featured = () => {
                   <SwiperSlide key={idx}>
                     {({ isActive, isNext, isPrev }) => (
                       <div
-                        className={` ${
-                          isActive
-                            ? "lg:scale-75"
-                            : isPrev || isNext
-                            ? "lg:scale-75"
-                            : "lg:scale-75"
-                        }`}
+                        className="scale-100 lg:scale-75  p-8 lg:p-1"
                       >
                        <Link to={`/Research/${Ai.announceCode}`}>
                           <AnnounceCard Ai={Ai}></AnnounceCard > 
                        </Link>
-
-
                       </div>
                     )}
                   </SwiperSlide>
@@ -84,7 +76,7 @@ const Featured = () => {
               }}
               className="cursor-pointer  hidden md:flex w-[200px] md:w-[120px] lg:w-1/6"
             >
-              <img src={RightArrow} className="w-[50px] h-[50px]" alt="" />
+              <img src={RightArrow} className="w-0 h-0  lg:w-[50px] lg:h-[50px]" alt="" />
             </div>
 
           </div>

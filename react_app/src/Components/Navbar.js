@@ -71,10 +71,10 @@ const Navbar = (props) => {
                  <div className={`${!authentificated && 'hidden'}`}>
                  <div className=' flex flex-row space-x-5 '>
                 <Link className=''  to="/Profile"> 
-                <img src={profileicon} className="lg:w-[40px] w-[30px] h-[30px] lg:h-[40px] hover:scale-90 " />
+                <img src={profileicon} className=" w-[42px] h-[42px] lg:w-[40px] lg:h-[40px] hover:scale-90 " />
                 </Link>  
                 <Link to="/MsgPage">
-                <img src={notif} className="lg:w-[40px] w-[30px] h-[30px] lg:h-[40px] hover:scale-90" />
+                <img src={notif} className=" w-[42px] h-[42px] lg:w-[40px] lg:h-[40px] hover:scale-90" />
                 </Link>
                
                 </div>

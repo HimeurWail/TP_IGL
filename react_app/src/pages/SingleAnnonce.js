@@ -100,7 +100,7 @@ const SingleAnnonce = (props) => {
                                       
                        ref={swiperRef}>
                         {imgsUrls.map((imgUrl) => {
-                          return <SwiperSlide> <img className="w-[220px] h-[110px] lg:h-[310px] lg:w-[450px] py-3" src={`http://127.0.0.1:8000${imgUrl}`} alt="" /></SwiperSlide>
+                          return <SwiperSlide> <img className="py-1 lg:pl-0 w-[250px] h-[160px] lg:h-[310px] lg:w-[450px] lg:py-2 lg:pb-4" src={`http://127.0.0.1:8000${imgUrl}`} alt="" /></SwiperSlide>
                         })}
                       </Swiper>
                       <div ref={navigationPrevRef} />
@@ -118,18 +118,18 @@ const SingleAnnonce = (props) => {
  
                </div>
 
-                <div className="flex flex-col w-[90%] lg:w-[460px] h-[200px] lg:h-[410px] ">
+                <div className="flex flex-col pt-4 lg:pt-0 w-[90%] lg:w-[460px] h-[200px] lg:h-[410px] ">
                     <div className="bg-black rounded-t-lg  text-white h-[90%] lg:h-[10%] text-center lg:w-[100%] ">
                      <p className=" text-center " > Price : {Ai.price} DA  </p>
                     </div>
 
                     <div className=" flex flex-col bg-white border-lightgris border-2 shadow-lg rounded-b-lg lg:h-[90%] lg:w-[100%]">
-                      <div className=" h-[85%] w-[100%] border-b-2 border-lightgris">
+                      <div className=" h-[85%] w-[100%] lg:border-b-2 border-lightgris">
                           <div className=" h-[40%] flex flex-col justify-center items-center mx-auto  ">
                             <div className= "pt-[2%] text-center  w-[90%] h-[30%] hover:underline  ">
                                     <p > Information About the seller </p>
                             </div>
-                            <div className= " shadow-xl w-[90%] h-[70%] border-lightgris border-2 rounded-lg ">
+                            <div className= " shadow-md lg:shadow-xl w-[90%] lg:h-[70%] border-lightgris border-2 rounded-lg ">
                                     
                                         <p className="px-[5%] py-[3%] ">
                                             Contact : {Ai.userContacts}  <br />
@@ -139,14 +139,14 @@ const SingleAnnonce = (props) => {
                             </div>
                           </div>
 
-                          <div className={` h-[60%] ${((!props.auth)||(Ai.userId === props.userName))  && "hidden"} flex flex-col justify-center items-center mx-auto `}>
+                          <div className={` h-[60%] ${((!props.auth)||(Ai.userId === props.userName))  && "hidden"} flex flex-col justify-center items-center mx-auto py-4 `}>
                             <label className="text-center"> Make an Offer </label>
                             <input
                              type="textarea"
                              required 
                              placeholder="Write a message to the seller "
                              value={message}
-                             className= "text-center shadow-xl w-[90%] h-[100px] border-lightgris border-2 rounded-lg "
+                             className= "text-center shadow-md lg:shadow-xl w-[90%] h-[100px] border-lightgris border-2 rounded-lg "
                              onChange ={(e)=> setMessage(e.target.value)}   />
 
 
@@ -160,7 +160,7 @@ const SingleAnnonce = (props) => {
                           </div>
                       </div>
 
-                      <div className={` flex-col justify-center items-center  hidden lg:visible ${((!props.auth)||(Ai.userId === props.userName)) && "hidden"}`}>
+                      <div className={`flex flex-col justify-center items-center  invisible lg:visible ${((!props.auth)||(Ai.userId === props.userName)) && "hidden"}`}>
                            <button onClick={AddToFav} className=" bg-white border-lightgris  border-2 px-[25px] py-[5px] mt-[10px] rounded-[5px] hover:bg-black hover:text-white "> 
                                    <div className="flex flex-rox items-center justify-between">
                                             <img className="h-[20px]" src={heart} alt="" />
@@ -175,7 +175,7 @@ const SingleAnnonce = (props) => {
             </div>
 
 
-            <div className=" flex flex-col lg:justify-center  px-[10%] pt-[50%] pb-10 lg:py-[2%]">
+            <div className=" flex flex-col lg:justify-center mt-4 lg:mt-0  px-[10%] pt-[50%] pb-10 lg:py-[2%]">
               <h1 className="pl-2 text-lg font-bold"> {Ai.title} </h1>
               <div className="flex flex-row items-end ">
                 <img src={position}className="pr-1 lg:pr-4 w-[25px] lg:w-[40px] " alt="" />
@@ -187,14 +187,14 @@ const SingleAnnonce = (props) => {
              
             <div className=" typezge3 flex flex-col lg:flex-row justify-center items-center h-[50%] mb-[10%] ">
              
-                <div className="flex space-x-5 lg:space-x-0 lg:flex-col justify-center items-center lg:h-[220px] lg:w-[20%] w-[80%] border-2 border-lightgris  ">
+                <div className="flex space-x-5 lg:space-x-0 lg:flex-col justify-center items-center lg:h-[220px] lg:w-[20%] w-[80%] py-3 border-2 border-lightgris  ">
                     <img src={typee} alt="" className="w-[30px] lg:w-[45px] lg:mb-[20px] h-10 " />
                     <p className="text-opacity-50 text-gris"> type </p>
                     <p> {Ai.type} </p>
 
                 </div>
 
-                <div className="flex space-x-5 lg:space-x-0 lg:flex-col justify-center items-center 
+                <div className="flex space-x-5 lg:space-x-0 lg:flex-col justify-center items-center py-3
                 lg:h-[220px] lg:w-[20%] w-[80%] border-2 border-lightgris ">
                     <img src={category} alt="" className="w-[30px]  lg:w-[45px] lg:mb-[20px] h-10 "/>
                     <p className="text-opacity-50 text-gris"> category </p>
@@ -203,7 +203,7 @@ const SingleAnnonce = (props) => {
                 </div>
 
 
-                <div className="flex space-x-5 lg:space-x-0 lg:flex-col justify-center items-center 
+                <div className="flex space-x-5 lg:space-x-0 lg:flex-col justify-center items-center py-3
                 lg:h-[220px] lg:w-[20%] w-[80%] border-2 border-lightgris ">
                     <img src={surface} alt="" className="w-[30px]  lg:w-[45px] lg:mb-[20px] h-10" />
                     <p className="text-opacity-50 text-gris" > surface </p>
@@ -211,7 +211,7 @@ const SingleAnnonce = (props) => {
                  </div>
 
 
-                 <div className="flex space-x-5 lg:space-x-0  lg:flex-col justify-center items-center 
+                 <div className="flex space-x-5 lg:space-x-0  lg:flex-col justify-center items-center py-3
                  lg:h-[220px] lg:w-[20%] w-[80%] border-2 border-lightgris ">
                     <img src={wilaya} className="h-[35px]  lg:w-[45px] lg:mb-[20px] lg:h-10" alt=""  />
                     <p className="text-opacity-50 text-gris"> Wilaya  </p>

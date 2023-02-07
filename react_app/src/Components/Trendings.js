@@ -22,16 +22,16 @@ const Trending = () => {
 
             <Title first="Trending Destination" ></Title>
 
-           <div className=" flex flex-col lg:flex-row justify-center items-center mx-auto mt-[15px] lg:mt-[50px] ">
+           <div className=" flex flex-wrap lg:flex-row justify-center items-center mx-auto mt-[25px] lg:mt-[50px] ">
                        
                       
            { trends.map((trend) =>
 
-                (<div className=" flex flex-row  mx-auto mb-[30px]" key={trend.id}>
+                (<div className=" flex flex-row  mx-auto mb-[30px]  " key={trend.id}>
                    
-                      <div className="single-item flex justify-center hover:scale-105 w-[250px] h-[250px] cursor-pointer">   
+                      <div className="single-item flex justify-center hover:scale-105 w-[180px] h-[180px] lg:w-[250px] lg:h-[250px] cursor-pointer">   
                                   
-                                  <img src={trend.pic} alt="" className="hover:scale-110 cursor-pointer" />  
+                                  <img src={trend.pic} alt="" className="hover:scale-110 cursor-pointer " />  
                                   <div className="trendscontent text-xl  font-semibold">
                                        <p className=""> {trend.title} </p> 
                                   </div>

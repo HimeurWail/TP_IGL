@@ -14,7 +14,7 @@ function Find() {
     <Title first={"Find a place that fits "}  second={"your comfort"}></Title>
 
 
-     <div className="flex  flex-col lg:flex-row m-[20px] space-y-6 lg:space-x-12 justify-center items-center">
+     <div className="flex  flex-col lg:flex-row items-center lg:items-end m-[20px] space-y-6 lg:space-x-12 justify-center ">
 
         <div className="single-item flex justify-center hover:scale-105 w-[300px] cursor-pointer ">  
         <Link to={'/Plainlist'}>
@@ -53,7 +53,7 @@ function Find() {
 
        
 
-     <div className="flex flex-col lg:flex-row justify-center items-center lg:flex-row lg:gap-12 lg:space-x-12 space-y-6" align="center">
+     <div className="flex flex-col  lg:items-end  justify-center items-center lg:flex-row lg:gap-12 lg:space-x-12 space-y-6" align="center">
  
             <div className="single-item flex justify-center hover:scale-105 w-[350px] cursor-pointer ">        
             <Link to={'/Plainlist'}>  
