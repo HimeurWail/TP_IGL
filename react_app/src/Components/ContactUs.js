@@ -40,10 +40,10 @@ const ContactUs = () => {
 
 
     return ( 
-    <div id="ContactUs" className="lg:pt-[5%] h-screen w-full lg:mt-[-100px] mt-[350px]">
+    <div id="ContactUs" className="lg:pt-[5%] h-screen w-full lg:mt-[-100px] mt-0">
         <Title className="m-[30px]" first={"Get in touch"}></Title>
 
-        <div className="createform p-[30px] flex flex-col lg:flex-row justify-center items-center lg:items-start gap-[10%]">
+        <div className="createform p-[30px] space-y-4 flex flex-col lg:flex-row justify-center items-center lg:items-start gap-[10%]">
       
         <div>
            <img  className="w-[300px] lg:w-[400px]" src={illustration} alt="" />
@@ -72,7 +72,7 @@ const ContactUs = () => {
         <input 
         type="textarea" 
         value={message}
-        className= " shadow-md h-[100px] "
+        className= " shadow-md lg:h-[100px] h-[70px] "
         onChange ={(e)=> setMessage(e.target.value)}  
         />
 
