@@ -1,2 +1,2 @@
 # TP_IGL
-web application for annonces
+web application for announces
